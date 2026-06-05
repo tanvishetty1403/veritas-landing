@@ -3,146 +3,192 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Application Confirmed — Veritas</title>
+  <title>Registration Confirmed — Veritas</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" />
-  
+  <link rel="stylesheet" href="/css/style.css" />
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html, body {
-      background-color: #f6f2ee;
-      color: #1c1816;
-      font-family: 'Inter', sans-serif;
-      min-height: 100vh;
-      -webkit-font-smoothing: antialiased;
+    /* Premium standalone spacing structures for centering the thank you canvas */
+    .thank-you-canvas {
       display: flex;
-      justify-content: center;
       align-items: center;
-      padding: 2rem;
-    }
-
-    html, body, a {
-      cursor: auto !important;
-    }
-    a:hover {
-      cursor: pointer !important;
-    }
-
-    .thankyou-page-wrapper {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: linear-gradient(135deg, #f6f2ee 0%, #daafbb 40%, #c5c1e0 70%, #f6f2ee 100%);
-      background-size: 100% 100%;
-      display: flex;
       justify-content: center;
-      align-items: center;
-      padding: 1.5rem;
-      z-index: 1;
+      min-height: calc(100vh - 260px); /* Centers card perfectly between nav and footer */
+      padding: 4rem 1.25rem;
     }
 
-    .thankyou-luxury-card {
-      position: relative;
-      background: rgba(255, 255, 255, 0.75);
-      backdrop-filter: blur(30px);
-      -webkit-backdrop-filter: blur(30px);
-      border: 1px solid rgba(255, 255, 255, 0.9);
-      border-radius: 40px;
+    .luxury-confirmation-card {
+      background: #faf8f5;
+      border: 1px solid rgba(28, 24, 22, 0.08);
+      box-shadow: 0 30px 70px rgba(28, 24, 22, 0.03);
+      border-radius: 24px 4px 24px 4px; /* Matches our premium branding asymmetry */
       max-width: 580px;
       width: 100%;
-      padding: 3.5rem;
+      padding: 4rem 3rem;
       text-align: center;
-      box-shadow: 0 40px 80px rgba(135, 130, 160, 0.15);
-      z-index: 10;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1.5rem;
     }
 
     .success-icon-badge {
-      font-family: 'Playfair Display', serif !important;
-      font-size: 2.5rem;
-      color: #9e8170;
-      margin-bottom: 0.25rem;
-      line-height: 1;
+      width: 64px;
+      height: 64px;
+      background: #1c1816;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 2rem auto;
     }
 
-    .thankyou-luxury-card h1 {
+    .success-icon-badge svg {
+      width: 28px;
+      height: 28px;
+      color: #fdfcfb;
+    }
+
+    .luxury-confirmation-card h1 {
       font-family: 'Playfair Display', serif !important;
-      font-size: 3rem;
+      font-weight: 700;
+      font-size: 2.5rem;
       letter-spacing: -0.01em;
       color: #1c1816;
-      line-height: 1.2;
+      margin-bottom: 1rem;
     }
 
-    .thankyou-luxury-card p {
-      font-family: 'Inter', sans-serif !important;
-      color: #1a1513;
-      font-size: 1.2rem;
-      line-height: 1.75;
+    .personalized-greeting {
+      font-weight: 600;
+      color: #1c1816;
     }
 
-    .btn-luxury-back {
-      background: #1c1816;
-      color: #fdfcfb;
-      border: none;
-      padding: 1.2rem 2.5rem;
-      border-radius: 24px 4px 24px 4px !important;
-      font-size: 1.15rem;
-      font-weight: 700;
-      transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1) !important;
-      text-decoration: none;
-      margin-top: 1rem;
+    .interview-notice-box {
+      background: rgba(230, 103, 146, 0.06);
+      border-left: 3px solid #e66792;
+      padding: 1.25rem;
+      border-radius: 4px 12px 12px 4px;
+      margin: 2rem 0;
+      text-align: left;
+      display: none; /* Controlled dynamically by data parameter checks */
+    }
+
+    .interview-notice-box p {
+      font-size: 0.95rem !important;
+      line-height: 1.5 !important;
+      color: #2b2522 !important;
+    }
+
+    .action-return-zone {
+      margin-top: 2.5rem;
+    }
+
+    .action-return-zone .btn-luxury-solid {
       display: inline-block;
-      width: 100%;
+      padding: 1rem 2.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
     }
 
-    .btn-luxury-back:hover {
-      background: #9e8170;
-      box-shadow: 0 15px 35px rgba(158, 129, 112, 0.25);
-      border-radius: 4px 24px 4px 24px !important;
+    /* Precision Mobile Override Adjustments */
+    @media (max-width: 600px) {
+      .thank-you-canvas {
+        padding: 2.5rem 1rem;
+      }
+      .luxury-confirmation-card {
+        padding: 3rem 1.5rem;
+        border-radius: 16px 4px 16px 4px;
+      }
+      .luxury-confirmation-card h1 {
+        font-size: 2rem;
+      }
+      .luxury-confirmation-card p {
+        font-size: 1rem !important;
+        line-height: 1.6 !important;
+      }
+      .action-return-zone .btn-luxury-solid {
+        width: 100%;
+      }
     }
   </style>
 </head>
 <body>
 
-  <div class="thankyou-page-wrapper">
-    <div class="thankyou-luxury-card">
-      <div class="success-icon-badge">✦</div>
-      <h1 id="js-greeting-header">Placement Secured</h1>
-      
-      <p>Thank you for registering for early access. Your placement position has been recorded in our secure network ledger.</p>
-      
-      <p id="interview-msg" style="font-size: 1.15rem !important; color: #332b27; margin: 0.25rem 0; font-weight: 500;"></p>
-      
-      <a href="index.html" class="btn-luxury-back">Return to Platform</a>[cite: 6]
+  <!-- Continuous Running System Ticker -->
+  <div class="system-ticker-container">
+    <div class="ticker-wrap-track">
+      <div class="ticker-segment">
+        <span class="ticker-item">VERITAS SECURE CORE ACTIVE</span> <span class="ticker-divider"><span class="ticker-dot"></span></span>
+        <span class="ticker-item">SCAN ENGINE: ONLINE</span> <span class="ticker-divider"><span class="ticker-dot"></span></span>
+        <span class="ticker-item">QUEUE ID: STAGED</span> <span class="ticker-divider"><span class="ticker-dot"></span></span>
+      </div>
+      <div class="ticker-segment">
+        <span class="ticker-item">VERITAS SECURE CORE ACTIVE</span> <span class="ticker-divider"><span class="ticker-dot"></span></span>
+        <span class="ticker-item">SCAN ENGINE: ONLINE</span> <span class="ticker-divider"><span class="ticker-dot"></span></span>
+        <span class="ticker-item">QUEUE ID: STAGED</span> <span class="ticker-divider"><span class="ticker-dot"></span></span>
+      </div>
     </div>
   </div>
 
+  <nav>
+    <a href="index.html" class="logo" style="font-family: 'Playfair Display', serif !important; font-weight: 700; font-size: 1.8rem;">Veritas</a>
+  </nav>
+
+  <main class="thank-you-canvas">
+    <div class="luxury-confirmation-card">
+      
+      <div class="success-icon-badge">
+        <!-- Premium Minimal Checkmark SVG Vector -->
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+        </svg>
+      </div>
+
+      <h1>Invitation Secured</h1>
+      
+      <p style="margin-bottom: 1.5rem;">
+        Welcome to the lineage of truth, <span id="client-name-target" class="personalized-greeting">there</span>.
+      </p>
+      
+      <p style="color: #443c39; font-size: 1.05rem !important;">
+        Your submission slot has been securely logged across our distributed staging registry array. An access token credential pipeline update will be routed to your email shortly.
+      </p>
+
+      <!-- Adaptive Staging Staged Interview Context Frame Box -->
+      <div class="interview-notice-box" id="js-interview-notice">
+        <p>
+          <strong style="color: #1c1816; font-weight: 700; display: block; margin-bottom: 0.25rem;">✨ User Interview Shortlist Staged</strong>
+          Thank you for opting in to assist our design validation process. Our team will contact you directly to schedule a brief 15-minute sync.
+        </p>
+      </div>
+
+      <div class="action-return-zone">
+        <a href="index.html" class="btn-luxury-solid">Return to Sandbox</a>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <a href="index.html" class="logo" style="font-family: 'Playfair Display', serif !important; font-weight: 700; font-size: 1.4rem; color: #fdfcfb; text-decoration: none;">Veritas</a>
+    <p style="font-size: 1.05rem !important; color: rgba(253,252,251,0.5) !important; margin-top: 0.5rem;">© 2026 Veritas Media Verification. All rights reserved.</p>
+  </footer>
+
   <script>
-    const params = new URLSearchParams(window.location.search);
-    const name = params.get("name");
-    const interview = params.get("interview");
+    // URL Parameter Extraction Logic Matrix
+    document.addEventListener("DOMContentLoaded", function() {
+      const urlParameters = new URLSearchParams(window.location.search);
+      const extractedName = urlParameters.get('name');
+      const interviewOptIn = urlParameters.get('interview');
 
-    if (name) {
-      document.getElementById("js-greeting-header").textContent = `Thanks, ${decodeURIComponent(name)}`;
-    }
+      // Update personalized name structures cleanly
+      if (extractedName) {
+        document.getElementById('client-name-target').textContent = decodeURIComponent(extractedName);
+      }
 
-    const msg = document.getElementById("interview-msg");
-    if (interview === "yes") {
-      msg.textContent = "Since you indicated willingness to speak with us, our team will reach out directly via your provided email channel within 48 hours to coordinate a brief 15-minute user interview.";
-    } else {
-      msg.textContent = "We will notify you via your registered email address as soon as your access credentials become available in our upcoming distribution batch.";
-    }
+      // Display user experience interview text frames if verified true
+      if (interviewOptIn === 'yes') {
+        document.getElementById('js-interview-notice').style.display = 'block';
+      }
+    });
   </script>
 </body>
 </html>
