@@ -44,24 +44,54 @@
       color: #1a1513 !important; 
     }
 
+    /* Fully Responsive Fluid Layout for the Hero Canvas Section */
     .hero-split-canvas {
       display: flex; 
       justify-content: center; 
       text-align: center; 
-      padding: 11rem 2rem 9rem 2rem;
+      padding: 11rem 1.5rem 9rem 1.5rem;
       width: 100%;
     }
 
     .hero-story-container {
       max-width: 840px; 
+      width: 100%;
       margin: 0 auto;
       display: flex;
       flex-direction: column;
       align-items: center;
     }
 
+    .hero-story-container h1 {
+      font-family: 'Playfair Display', serif !important;
+      font-weight: 700;
+      font-size: calc(2.8rem + 2vw);
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-tagline {
+      font-family: 'Playfair Display', serif !important;
+      font-style: italic;
+      font-size: calc(1.5rem + 1vw) !important;
+      font-weight: 600;
+      margin-bottom: 2.5rem;
+      color: #1c1816 !important;
+      line-height: 1.3;
+    }
+
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      width: 100%;
+      flex-wrap: wrap;
+    }
+
+    /* Workspace Content Block Formatting Layouts */
     .standalone-demo-workspace {
-      padding: 6rem 2rem;
+      padding: 6rem 1.5rem;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -81,7 +111,20 @@
     .luxury-radar-card {
       width: 100% !important;
       max-width: 100% !important;
-      padding: 2.5rem !important;
+      padding: 2.5rem 1.5rem !important;
+    }
+
+    .radar-status-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
     }
 
     .workspace-tab-row {
@@ -144,14 +187,14 @@
       align-items: center;
       justify-content: center;
       background: radial-gradient(circle, #15131a 0%, #000000 100%);
-      padding: 2rem;
+      padding: 1.5rem;
     }
 
     .waveform-bars-wrapper {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 6px;
+      gap: 4px;
       width: 100%;
       height: 160px;
       margin-bottom: 2rem;
@@ -180,7 +223,7 @@
       width: 100%;
       height: 100%;
       background: #110f12;
-      padding: 2.5rem;
+      padding: 1.5rem;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
@@ -191,12 +234,11 @@
     .plagiarism-code-terminal {
       font-family: monospace;
       color: #a5d6a7;
-      font-size: 1.05rem;
+      font-size: 1rem;
       line-height: 1.6;
       width: 100%;
     }
 
-    /* Fixed clutter styling: Expanded margins to separate scan button execution elements cleanly */
     .demo-action-trigger-zone {
       margin-top: 2rem; 
       display: flex;
@@ -213,7 +255,7 @@
     .expanded-product-intro h2 {
       font-family: 'Playfair Display', serif !important; 
       font-weight: 700 !important;
-      font-size: 3.2rem !important; 
+      font-size: calc(2rem + 1.2vw) !important; 
       letter-spacing: -0.01em !important;
       color: #1c1816 !important;
       margin-bottom: 1.25rem !important;
@@ -259,12 +301,42 @@
     }
 
     @media (max-width: 868px) {
+      .hero-split-canvas {
+        padding: 8rem 1rem 6rem 1rem;
+      }
+      .hero-actions a {
+        width: 100%; 
+      }
+      .workspace-tab-row {
+        margin-bottom: 2rem;
+      }
+      .media-tab-trigger {
+        width: 100%; 
+        text-align: center;
+      }
+      .visual-viewport-box {
+        height: 320px; 
+      }
+      .waveform-bars-wrapper {
+        gap: 2px;
+      }
+      .waveform-bar {
+        width: 3px;
+      }
       .tour-grid-framework {
         grid-template-columns: 1fr;
         gap: 3rem;
+        margin-top: 3.5rem;
       }
-      .expanded-product-intro h2 {
-        font-size: 2.5rem !important;
+      .signup-section {
+        padding: 4rem 1rem !important;
+      }
+      .signup-form {
+        padding: 2rem 1.5rem !important;
+      }
+      .form-row {
+        grid-template-columns: 1fr !important; 
+        gap: 1rem !important;
       }
     }
   </style>
@@ -299,16 +371,14 @@
   <div class="premium-gradient-bg">
     <header class="hero-split-canvas">
       <div class="hero-story-container">
-        <h1 style="font-family: 'Playfair Display', serif !important; font-weight: 700; font-size: 5rem; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 1.5rem;">Veritas</h1>
-        <p style="font-family: 'Playfair Display', serif !important; font-style: italic; font-size: 2.6rem !important; font-weight: 600; margin-bottom: 2.5rem; color: #1c1816 !important; line-height: 1.3; letter-spacing: normal;">
-          Beyond detection, into derivation.
-        </p>
+        <h1>Veritas</h1>
+        <p class="hero-tagline">Beyond detection, into derivation.</p>
         <p style="font-size: 1.35rem !important; margin-bottom: 3.5rem !important; color: #2b2522 !important; max-width: 720px; line-height: 1.8 !important;">
           Veritas looks beneath the layers of any image, video, audio clip, or text document to reveal modifications, deepfakes, and plagiarism in seconds. See the truth instantly.
         </p>
-        <div class="hero-actions" style="display: flex; justify-content: center; gap: 1.5rem;">
-          <a href="#signup" class="btn-luxury-solid" style="padding: 1.2rem 2.5rem; font-size: 1.1rem; font-weight: 600;">Join the Waiting List</a>
-          <a href="#demo-workspace" class="btn-luxury-outline" id="js-scroll-to-demo" style="padding: 1.2rem 2.5rem; font-size: 1.1rem; font-weight: 600;">See how it works</a>
+        <div class="hero-actions">
+          <a href="#signup" class="btn-luxury-solid" style="padding: 1.2rem 2.5rem; font-size: 1.1rem; font-weight: 600; text-decoration: none;">Join the Waiting List</a>
+          <a href="#demo-workspace" class="btn-luxury-outline" id="js-scroll-to-demo" style="padding: 1.2rem 2.5rem; font-size: 1.1rem; font-weight: 600; text-decoration: none;">See how it works</a>
         </div>
       </div>
     </header>
@@ -328,14 +398,13 @@
 
       <div class="demo-card-wrapper">
         <div class="luxury-radar-card">
-          <div class="radar-status-bar" style="display: flex; justify-content: space-between; align-items: center; position: relative; font-size: 0.95rem; font-weight: 600; letter-spacing: 0.05em;">
+          <div class="radar-status-bar">
             <span id="demo-status-text">SYSTEM STANDBY — AWAITING SCAN INITIALIZATION</span>
             
-            <div style="display: flex; align-items: center; gap: 1rem;">
+            <div style="display: flex; align-items: center; justify-content: flex-end;">
               <span id="demo-originality-score" style="opacity: 0; transition: opacity 0.4s ease; font-weight: 700; font-size: 0.95rem; color: #c9302c; background: rgba(201,48,44,0.08); padding: 0.35rem 0.85rem; border-radius: 6px;">
                 Originality Score: 14.6% (Highly Manipulated)
               </span>
-              <span id="demo-status-badge">READY</span>
             </div>
           </div>
 
@@ -373,15 +442,15 @@
             <div class="heatmap-overlay-node heatmap-zone-cat" id="demo-heatmap" style="opacity: 0; transition: opacity 0.4s ease;"></div>
           </div>
 
-          <div class="radar-footer-bar" style="font-size: 0.95rem; font-weight: 600; letter-spacing: 0.05em;">
+          <div class="radar-footer-bar" style="font-size: 0.95rem; font-weight: 600; letter-spacing: 0.05em; gap: 0.5rem; flex-wrap: wrap;">
             <span>VERITAS SPECTRUM REPORT</span>
-            <span id="demo-footer-result" style="font-weight: 700; color: #332b27;">READY FOR INTAKE</span>
+            <span id="demo-footer-result" style="font-weight: 700; color: #332b27; text-align: right;">READY FOR INTAKE</span>
           </div>
         </div>
       </div>
 
       <div class="demo-action-trigger-zone">
-        <button class="btn-luxury-solid" id="js-trigger-scan" style="padding: 1.2rem 3.5rem; font-size: 1.15rem; font-weight: 700; letter-spacing: 0.05em;">Start Forensic Scan</button>
+        <button class="btn-luxury-solid" id="js-trigger-scan" style="padding: 1.2rem 3.5rem; font-size: 1.15rem; font-weight: 700; letter-spacing: 0.05em; max-width: 100%;">Start Forensic Scan</button>
       </div>
     </div>
   </section>
@@ -432,7 +501,7 @@
           <li style="margin-bottom: 0.75rem;">Priority onboarding routes for your wider organization members</li>
         </ul>
         <p style="font-size: 1.1rem !important; color: #443c39; margin-top: 3rem; font-weight: 600;">
-          CURRENT SIGNUPS WAITING: <strong id="signup-count" style="color: #1a1513; font-weight: 800;">...</strong> ACTIVE RESERVAIONS
+          CURRENT SIGNUPS WAITING: <strong id="signup-count" style="color: #1a1513; font-weight: 800;">...</strong> ACTIVE RESERVATIONS
         </p>
       </div>
 
@@ -453,14 +522,15 @@
         
         <div class="form-group" style="width: 100%; text-align: left; margin-bottom: 1.5rem;">
           <label for="role" style="font-size: 0.85rem; font-weight: 700; letter-spacing: 0.05em; margin-bottom: 0.5rem; display: block;">YOUR PROFESSION / FIELD</label>
-          <select id="role" name="role" style="padding: 1rem; font-size: 1.05rem; border-radius: 10px; width: 100%; height: auto; background-color: #fff;">
+          <select id="role" name="role" required style="padding: 1rem; font-size: 1.05rem; border-radius: 10px; width: 100%; height: auto; background-color: #fff;">
+            <option value="" disabled selected hidden>-- Select Your Field --</option>
             <option value="Journalist">Journalist or Media Creator</option>
             <option value="Lawyer">Legal or Forensic Professional</option>
             <option value="HR Professional">Corporate Trust & HR Security</option>
             <option value="Fact Checker">Independent Researcher / Fact Checker</option>
             <option value="Digital Safety Cons">Everyday Consumer (Protecting Personal Media & Identity)</option>
             <option value="Fraud Investigator">Anti-Fraud or Scam Prevention Specialist</option>
-            <option value="Tech Enthusiast">Early Adopter / Open Beta Explorer</option>
+            <option value="Other">Other / Specialization Not Listed</option>
           </select>
         </div>
         
@@ -470,13 +540,13 @@
         </label>
         
         <p class="form-error" id="form-error" style="color: #8a2525; font-size: 1rem; font-weight: bold; margin-bottom: 1rem;"></p>
-        <button type="submit" class="btn-luxury-solid" style="width: 100%; padding: 1.2rem; font-size: 1.15rem; font-weight: 700;">Request Early Access Spot</button>
+        <button type="submit" class="btn-luxury-solid" style="width: 100%; padding: 1.2rem; font-size: 1.15rem; font-weight: 700; margin-top: -3rem;">Request Early Access Spot</button>
       </form>
     </div>
   </section>
 
   <footer>
-    <a href="#" class="logo" style="font-family: 'Playfair Display', serif !important; font-weight: 700; font-size: 1.4rem;">Veritas</a>
+    <a class="logo" style="font-family: 'Playfair Display', serif !important; font-weight: 700; font-size: 1.4rem;">Veritas</a>
     <p style="font-size: 1.05rem !important; color: #5c534f !important; margin-top: 0.5rem;">© 2026 Veritas Media Verification. All rights reserved.</p>
   </footer>
 
@@ -514,8 +584,6 @@
         document.getElementById("demo-heatmap").style.opacity = "0";
         document.getElementById("demo-originality-score").style.opacity = "0";
         document.getElementById("demo-status-text").textContent = "SYSTEM STANDBY — AWAITING SCAN INITIALIZATION";
-        document.getElementById("demo-status-badge").textContent = "READY";
-        document.getElementById("demo-status-badge").style.background = "#9e8170";
         document.getElementById("demo-footer-result").textContent = "READY FOR INTAKE";
         document.getElementById("demo-footer-result").style.color = "#332b27";
         document.getElementById("simulation-base-image").style.filter = "none";
@@ -571,7 +639,6 @@
         const heatmap = document.getElementById("demo-heatmap");
         const scorePin = document.getElementById("demo-originality-score");
         const statusText = document.getElementById("demo-status-text");
-        const statusBadge = document.getElementById("demo-status-badge");
         const footerResult = document.getElementById("demo-footer-result");
 
         heatmap.style.opacity = "0";
@@ -582,8 +649,7 @@
         scanBtn.disabled = true;
         scanBtn.textContent = "Processing File Matrix...";
         
-        statusBadge.textContent = "SCANNING";
-        statusBadge.style.background = "#e6a23c"; 
+        statusText.textContent = "INITIALIZING CORE FORENSIC ENGINE ANALYSIS MATRIX...";
 
         if (activeMediaMode === 'image') {
           statusText.textContent = "EXTRACTING SURFACE LEVEL METADATA...";
@@ -604,8 +670,6 @@
 
           setTimeout(() => {
             statusText.textContent = "ANALYSIS COMPLETED";
-            statusBadge.textContent = "PROCESSED";
-            statusBadge.style.background = "#5cb85c";
             scorePin.textContent = "Originality Score: 14.6% (Highly Manipulated)";
             scorePin.style.color = "#c9302c";
             scorePin.style.background = "rgba(201,48,44,0.08)";
@@ -634,8 +698,6 @@
 
           setTimeout(() => {
             statusText.textContent = "VIDEO STREAM FORENSIC PROCESSING COMPLETED";
-            statusBadge.textContent = "PROCESSED";
-            statusBadge.style.background = "#5cb85c";
             scorePin.textContent = "Originality Score: 8.4% (AI Generated Video)";
             scorePin.style.color = "#c9302c";
             scorePin.style.background = "rgba(201,48,44,0.08)";
@@ -678,8 +740,6 @@
               bar.style.backgroundColor = '#c9302c';
             });
             statusText.textContent = "AUDIO SPECTROGRAM OVERVIEW FINISHED";
-            statusBadge.textContent = "PROCESSED";
-            statusBadge.style.background = "#5cb85c";
             scorePin.textContent = "Originality Score: 3.8% (AI Synthetic Voice)";
             scorePin.style.color = "#c9302c";
             scorePin.style.background = "rgba(201,48,44,0.08)";
@@ -709,8 +769,6 @@
           setTimeout(() => {
             term.innerHTML += `<br>> ENGINE PROCESS TERMINATED. SIMILARITY MATCH IDENTIFIED.`;
             statusText.textContent = "TEXT CORRELATION SEARCH COMPLETED";
-            statusBadge.textContent = "PROCESSED";
-            statusBadge.style.background = "#5cb85c";
             
             scorePin.textContent = "Originality Score: 41.2% (Plagiarized Copy Found)";
             scorePin.style.color = "#c9302c";
