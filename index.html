@@ -505,22 +505,22 @@
         </p>
       </div>
 
-      <form class="signup-form" id="signup-form" style="padding: 3rem; border-radius: 24px;">
-        <h3 style="font-family: 'Playfair Display', serif !important; font-size: 1.8rem; font-weight: 700; margin-bottom: 0.5rem; letter-spacing: -0.01em;">Request Invitation Slot</h3>
-        <p style="color: #443c39; font-size: 1.05rem !important; margin-bottom: 2rem;">Fill out your basic details below to secure your placement.</p>
+      <form class="signup-form" id="signup-form" style="padding: 3rem; border-radius: 24px; display: flex; flex-direction: column; gap: 1.5rem;">
+        <h3 style="font-family: 'Playfair Display', serif !important; font-size: 1.8rem; font-weight: 700; margin-bottom: 0.25rem; letter-spacing: -0.01em;">Request Invitation Slot</h3>
+        <p style="color: #443c39; font-size: 1.05rem !important; margin-bottom: 0.75rem;">Fill out your basic details below to secure your placement.</p>
         
         <div class="form-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; width: 100%;">
-          <div class="form-group" style="text-align: left;">
+          <div class="form-group" style="text-align: left; margin: 0;">
             <label for="name" style="font-size: 0.85rem; font-weight: 700; letter-spacing: 0.05em; margin-bottom: 0.5rem; display: block;">YOUR FULL NAME</label>
             <input type="text" id="name" name="name" placeholder="Sarah Jenkins" required style="padding: 1rem; font-size: 1.05rem; border-radius: 10px; width: 100%;" />
           </div>
-          <div class="form-group" style="text-align: left;">
+          <div class="form-group" style="text-align: left; margin: 0;">
             <label for="email" style="font-size: 0.85rem; font-weight: 700; letter-spacing: 0.05em; margin-bottom: 0.5rem; display: block;">EMAIL ADDRESS</label>
             <input type="email" id="email" name="email" placeholder="sarah@company.com" required style="padding: 1rem; font-size: 1.05rem; border-radius: 10px; width: 100%;" />
           </div>
         </div>
         
-        <div class="form-group" style="width: 100%; text-align: left; margin-bottom: 1.5rem;">
+        <div class="form-group" style="width: 100%; text-align: left; margin: 0;">
           <label for="role" style="font-size: 0.85rem; font-weight: 700; letter-spacing: 0.05em; margin-bottom: 0.5rem; display: block;">YOUR PROFESSION / FIELD</label>
           <select id="role" name="role" required style="padding: 1rem; font-size: 1.05rem; border-radius: 10px; width: 100%; height: auto; background-color: #fff;">
             <option value="" disabled selected hidden>-- Select Your Field --</option>
@@ -534,13 +534,14 @@
           </select>
         </div>
         
-        <label class="checkbox-group" style="display: flex; align-items: flex-start; gap: 0.75rem; text-align: left; margin-bottom: 2rem;">
-          <input type="checkbox" id="interviewOk" name="interviewOk" style="margin-top: 0.3rem; transform: scale(1.1);" />
-          <span style="font-size: 1.05rem; line-height: 1.5; color: #332b27; font-weight: 500;">I'm happy to provide product feedback or participate in a quick 15-minute user interview.</span>
+        <label class="checkbox-group" style="display: flex; align-items: flex-start; gap: 0.75rem; text-align: left; margin-bottom: 0.5rem; padding: 0;">
+          <input type="checkbox" id="interviewOk" name="interviewOk" style="margin-top: 0.3rem; transform: scale(1.1); flex-shrink: 0;" />
+          <span style="font-size: 1.05rem; line-height: 1.4; color: #332b27; font-weight: 500;">I'm happy to provide product feedback or participate in a quick 15-minute user interview.</span>
         </label>
         
-        <p class="form-error" id="form-error" style="color: #8a2525; font-size: 1rem; font-weight: bold; margin-bottom: 1rem;"></p>
-        <button type="submit" class="btn-luxury-solid" style="width: 100%; padding: 1.2rem; font-size: 1.15rem; font-weight: 700; margin-top: -3rem;">Request Early Access Spot</button>
+        <p class="form-error" id="form-error" style="color: #8a2525; font-size: 1rem; font-weight: bold; margin: 0;"></p>
+        
+        <button type="submit" class="btn-luxury-solid" style="width: 100%; padding: 1.2rem; font-size: 1.15rem; font-weight: 700; margin-top: 0.5rem; flex-shrink: 0;">Request Early Access Spot</button>
       </form>
     </div>
   </section>
