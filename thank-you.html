@@ -27,7 +27,6 @@
       padding: 2rem;
     }
 
-    /* Standard Native Browser Cursor Configuration */
     html, body, a {
       cursor: auto !important;
     }
@@ -92,24 +91,6 @@
       line-height: 1.75;
     }
 
-    .visual-viewport-frame {
-      position: relative;
-      width: 100%;
-      height: 240px;
-      border-radius: 20px;
-      overflow: hidden;
-      margin: 0.5rem 0;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-      background: #000;
-    }
-
-    .visual-viewport-frame img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    /* Asymmetric Premium Shape Configuration for Back Button Alignment */
     .btn-luxury-back {
       background: #1c1816;
       color: #fdfcfb;
@@ -120,7 +101,7 @@
       font-weight: 700;
       transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1) !important;
       text-decoration: none;
-      margin-top: 0.5rem;
+      margin-top: 1rem;
       display: inline-block;
       width: 100%;
     }
@@ -141,19 +122,13 @@
       
       <p>Thank you for registering for early access. Your placement position has been recorded in our secure network ledger.</p>
       
-      <div class="visual-viewport-frame">
-        <!-- Displaying local eye image configuration cleanly -->
-        <img src="./eye.png" alt="Verification Complete" />
-      </div>
-      
       <p id="interview-msg" style="font-size: 1.15rem !important; color: #332b27; margin: 0.25rem 0; font-weight: 500;"></p>
       
-      <a href="index.html" class="btn-luxury-back">Return to Platform</a>
+      <a href="index.html" class="btn-luxury-back">Return to Platform</a>[cite: 6]
     </div>
   </div>
 
   <script>
-    // Safely extract parameter payload strings from URL queries
     const params = new URLSearchParams(window.location.search);
     const name = params.get("name");
     const interview = params.get("interview");

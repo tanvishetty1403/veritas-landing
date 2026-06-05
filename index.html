@@ -387,8 +387,6 @@
       e.preventDefault();
       const targetElement = document.getElementById("demo-workspace");
       const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-      
-      // Removed the residual template citation markup tag that caused the crash
       const targetOffsetPosition = elementPosition + 140;
 
       window.scrollTo({
@@ -450,13 +448,20 @@
       });
     }
 
-    // Form onboarding submission pipeline
+    // Form onboarding submission pipeline with Duplicate Click Prevention
     const signupForm = document.getElementById("signup-form");
     if(signupForm) {
       signupForm.addEventListener("submit", async function(e) {
         e.preventDefault();
+        
+        const submitButton = signupForm.querySelector('button[type="submit"]');
         const errBox = document.getElementById("form-error");
         errBox.textContent = "";
+
+        // UI State Lock: Disable button instantly to prevent duplicate submissions
+        submitButton.disabled = true;
+        const originalButtonText = submitButton.textContent;
+        submitButton.textContent = "Securing Placement Slot...";
 
         const payload = {
           name: document.getElementById("name").value,
@@ -475,11 +480,17 @@
 
           if (!res.ok) {
             errBox.textContent = data.error || "An error occurred.";
+            // Re-enable button if server side returns an expected processing error
+            submitButton.disabled = false;
+            submitButton.textContent = originalButtonText;
           } else {
             window.location.href = `thank-you.html?name=${encodeURIComponent(payload.name)}&interview=${payload.interviewOk ? 'yes' : 'no'}`;
           }
         } catch(err) {
           errBox.textContent = "Network error. Please try again.";
+          // Re-enable button on connection loss drops so they can retry submission safely
+          submitButton.disabled = false;
+          submitButton.textContent = originalButtonText;
         }
       });
     }
