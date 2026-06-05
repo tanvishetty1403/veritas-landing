@@ -37,7 +37,6 @@
       border-radius: 4px 24px 4px 24px !important;
     }
 
-    /* Bumping core presentation sizes for optimal readability */
     p {
       font-family: 'Inter', sans-serif !important;
       font-size: 1.2rem !important; 
@@ -45,7 +44,6 @@
       color: #1a1513 !important; 
     }
 
-    /* Formatting fix for the main Hero Content block wrapper */
     .hero-split-canvas {
       display: flex; 
       justify-content: center; 
@@ -62,7 +60,6 @@
       align-items: center;
     }
 
-    /* Isolated Interactive Demo Workspace Section */
     .standalone-demo-workspace {
       padding: 6rem 2rem;
       display: flex;
@@ -87,38 +84,124 @@
       padding: 2.5rem !important;
     }
 
+    .workspace-tab-row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 3.5rem; 
+      width: 100%;
+    }
+
+    .media-tab-trigger {
+      background: rgba(28, 24, 22, 0.04);
+      border: 1px solid rgba(28, 24, 22, 0.08);
+      padding: 0.75rem 1.5rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #4a423e;
+      border-radius: 12px 2px 12px 2px;
+      transition: all 0.25s ease;
+    }
+
+    .media-tab-trigger:hover {
+      background: rgba(28, 24, 22, 0.08);
+      color: #1c1816;
+    }
+
+    .media-tab-trigger.is-active {
+      background: #1c1816;
+      border-color: #1c1816;
+      color: #fdfcfb;
+    }
+
     .visual-viewport-box {
       position: relative;
       overflow: hidden;
       border-radius: 14px;
       width: 100%;
-      max-height: 480px;
+      height: 440px;
       display: flex;
       align-items: center;
       justify-content: center;
       background: #000;
     }
 
-    .visual-viewport-box img {
+    .visual-viewport-box img, 
+    .visual-viewport-box video {
       width: 100%;
-      height: auto;
-      object-fit: contain;
+      height: 100%;
+      object-fit: cover;
       display: block;
     }
 
-    .demo-action-trigger-zone {
-      margin-top: 2.5rem;
+    .audio-waveform-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
       display: flex;
+      flex-direction: column;
+      align-items: center;
       justify-content: center;
+      background: radial-gradient(circle, #15131a 0%, #000000 100%);
+      padding: 2rem;
+    }
+
+    .waveform-bars-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      width: 100%;
+      height: 160px;
+      margin-bottom: 2rem;
+    }
+
+    .waveform-bar {
+      width: 4px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.25);
+      border-radius: 2px;
+      transition: height 0.15s ease, background-color 0.3s ease;
+    }
+
+    .audio-player-interface {
+      width: 100%;
+      max-width: 400px;
+      z-index: 5;
+    }
+
+    .audio-player-interface audio {
+      width: 100%;
+      outline: none;
+    }
+
+    .plagiarism-text-sandbox {
+      width: 100%;
+      height: 100%;
+      background: #110f12;
+      padding: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
+      overflow-y: auto;
+    }
+
+    .plagiarism-code-terminal {
+      font-family: monospace;
+      color: #a5d6a7;
+      font-size: 1.05rem;
+      line-height: 1.6;
       width: 100%;
     }
 
-    /* Premium Balanced Column Grid Fix for Features Section */
-    .product-tour-layout {
-      padding: 6rem 2rem;
-      width: 100%;
+    /* Fixed clutter styling: Expanded margins to separate scan button execution elements cleanly */
+    .demo-action-trigger-zone {
+      margin-top: 2rem; 
       display: flex;
       justify-content: center;
+      width: 100%;
     }
 
     .tour-section-inner {
@@ -221,7 +304,7 @@
           Beyond detection, into derivation.
         </p>
         <p style="font-size: 1.35rem !important; margin-bottom: 3.5rem !important; color: #2b2522 !important; max-width: 720px; line-height: 1.8 !important;">
-          Veritas looks beneath the layers of any image to reveal modifications, edits, and fake computer-generated content in seconds. See the truth instantly.
+          Veritas looks beneath the layers of any image, video, audio clip, or text document to reveal modifications, deepfakes, and plagiarism in seconds. See the truth instantly.
         </p>
         <div class="hero-actions" style="display: flex; justify-content: center; gap: 1.5rem;">
           <a href="#signup" class="btn-luxury-solid" style="padding: 1.2rem 2.5rem; font-size: 1.1rem; font-weight: 600;">Join the Waiting List</a>
@@ -234,8 +317,15 @@
   <section id="demo-workspace" class="standalone-demo-workspace">
     <div class="section-inner" style="width: 100%; max-width: 960px;">
       <h2 style="font-family: 'Playfair Display', serif !important; font-weight: 700; font-size: 3rem; letter-spacing: -0.01em; margin-bottom: 1.25rem; color: #1c1816;">Experience the Core Engine</h2>
-      <p style="color: #332b27 !important; max-width: 640px; margin: 0 auto 3.5rem auto; font-size: 1.2rem !important;">Interact with the active analysis container. Hit the scan action button below to run a real-time forensics computation sequence.</p>
+      <p style="color: #332b27 !important; max-width: 640px; margin: 0 auto 2.5rem auto; font-size: 1.2rem !important;">Interact with the active analysis container. Choose a format tab, then hit scan to run real-time forensic computing sequences.</p>
       
+      <div class="workspace-tab-row">
+        <button class="media-tab-trigger is-active" data-target-mode="image">Image Engine</button>
+        <button class="media-tab-trigger" data-target-mode="video">Video Matrix</button>
+        <button class="media-tab-trigger" data-target-mode="audio">Audio Voice Core</button>
+        <button class="media-tab-trigger" data-target-mode="plagiarism">Plagiarism Checker</button>
+      </div>
+
       <div class="demo-card-wrapper">
         <div class="luxury-radar-card">
           <div class="radar-status-bar" style="display: flex; justify-content: space-between; align-items: center; position: relative; font-size: 0.95rem; font-weight: 600; letter-spacing: 0.05em;">
@@ -249,13 +339,37 @@
             </div>
           </div>
 
-          <div class="visual-viewport-box">
-            <img
-              id="simulation-base-image"
-              src="./eye.avif"
-              alt="Veritas Forensic Evaluation Matrix"
-              style="transition: filter 0.5s ease;"
-            />
+          <div class="visual-viewport-box" id="js-viewport-root">
+            <div class="media-panel-node" id="panel-image" style="width:100%; height:100%;">
+              <img id="simulation-base-image" src="./eye.avif" alt="Veritas Image Forensic Evaluation Matrix" style="transition: filter 0.5s ease;" />
+            </div>
+
+            <div class="media-panel-node" id="panel-video" style="width:100%; height:100%; display:none;">
+              <video id="simulation-video-player" loop controls playsinline style="transition: filter 0.5s ease; width:100%; height:100%;">
+                <source src="./video.mp4" type="video/mp4">
+              </video>
+            </div>
+
+            <div class="media-panel-node" id="panel-audio" style="width:100%; height:100%; display:none;">
+              <div class="audio-waveform-container">
+                <div class="waveform-bars-wrapper" id="js-waveform-matrix"></div>
+                <div class="audio-player-interface">
+                  <audio id="simulation-audio-player" controls>
+                    <source src="./audio.ogg" type="audio/ogg">
+                  </audio>
+                </div>
+              </div>
+            </div>
+
+            <div class="media-panel-node" id="panel-plagiarism" style="width:100%; height:100%; display:none;">
+              <div class="plagiarism-text-sandbox">
+                <div class="plagiarism-code-terminal" id="js-plagiarism-terminal">
+                  // VERITAS PLAGIARISM REPOSITORY CORRELATION ENGINE<br>
+                  // READY FOR CHARACTER VALUE INTAKE STRINGS...
+                </div>
+              </div>
+            </div>
+
             <div class="heatmap-overlay-node heatmap-zone-cat" id="demo-heatmap" style="opacity: 0; transition: opacity 0.4s ease;"></div>
           </div>
 
@@ -318,7 +432,7 @@
           <li style="margin-bottom: 0.75rem;">Priority onboarding routes for your wider organization members</li>
         </ul>
         <p style="font-size: 1.1rem !important; color: #443c39; margin-top: 3rem; font-weight: 600;">
-          CURRENT SIGNUPS WAITING: <strong id="signup-count" style="color: #1a1513; font-weight: 800;">...</strong> ACTIVE RESERVATIONS
+          CURRENT SIGNUPS WAITING: <strong id="signup-count" style="color: #1a1513; font-weight: 800;">...</strong> ACTIVE RESERVAIONS
         </p>
       </div>
 
@@ -367,7 +481,58 @@
   </footer>
 
   <script>
-    // Fetch live signups count dynamically
+    let activeMediaMode = 'image';
+    let waveformAnimationInterval = null;
+
+    const waveformRoot = document.getElementById("js-waveform-matrix");
+    if (waveformRoot) {
+      for (let i = 0; i < 36; i++) {
+        const bar = document.createElement("div");
+        bar.className = "waveform-bar";
+        const baseHeight = 15 + Math.sin(i * 0.2) * 20;
+        bar.style.height = `${Math.max(10, baseHeight)}px`;
+        waveformRoot.appendChild(bar);
+      }
+    }
+
+    const mediaTabs = document.querySelectorAll(".media-tab-trigger");
+    mediaTabs.forEach(tab => {
+      tab.addEventListener("click", function() {
+        if (scanBtn.disabled) return; 
+        
+        mediaTabs.forEach(t => t.classList.remove("is-active"));
+        this.classList.add("is-active");
+        
+        activeMediaMode = this.getAttribute("data-target-mode");
+        
+        document.querySelectorAll(".media-panel-node").forEach(panel => panel.style.display = 'none');
+        document.getElementById(`panel-${activeMediaMode}`).style.display = 'block';
+        
+        clearInterval(waveformAnimationInterval);
+        document.querySelectorAll(".waveform-bar").forEach(b => b.style.backgroundColor = 'rgba(255,255,255,0.25)');
+        
+        document.getElementById("demo-heatmap").style.opacity = "0";
+        document.getElementById("demo-originality-score").style.opacity = "0";
+        document.getElementById("demo-status-text").textContent = "SYSTEM STANDBY — AWAITING SCAN INITIALIZATION";
+        document.getElementById("demo-status-badge").textContent = "READY";
+        document.getElementById("demo-status-badge").style.background = "#9e8170";
+        document.getElementById("demo-footer-result").textContent = "READY FOR INTAKE";
+        document.getElementById("demo-footer-result").style.color = "#332b27";
+        document.getElementById("simulation-base-image").style.filter = "none";
+        
+        const videoEl = document.getElementById("simulation-video-player");
+        videoEl.pause();
+        videoEl.currentTime = 0;
+        videoEl.style.filter = "none";
+
+        const audioEl = document.getElementById("simulation-audio-player");
+        audioEl.pause();
+        audioEl.currentTime = 0;
+
+        document.getElementById("js-plagiarism-terminal").innerHTML = `// VERITAS PLAGIARISM REPOSITORY CORRELATION ENGINE<br>// READY FOR CHARACTER VALUE INTAKE STRINGS...`;
+      });
+    });
+
     async function updateSignupCounter() {
       try {
         const response = await fetch('/api/signups/count');
@@ -382,7 +547,6 @@
     }
     document.addEventListener("DOMContentLoaded", updateSignupCounter);
 
-    // Custom Target Offset Scroll implementation for precise positioning
     document.getElementById("js-scroll-to-demo").addEventListener("click", function(e) {
       e.preventDefault();
       const targetElement = document.getElementById("demo-workspace");
@@ -395,13 +559,15 @@
       });
     });
 
-    // Forensics scan routine animation engine
     const scanBtn = document.getElementById("js-trigger-scan");
     if (scanBtn) {
       scanBtn.addEventListener("click", function(e) {
         e.preventDefault();
         
         const img = document.getElementById("simulation-base-image");
+        const videoEl = document.getElementById("simulation-video-player");
+        const audioEl = document.getElementById("simulation-audio-player");
+        const term = document.getElementById("js-plagiarism-terminal");
         const heatmap = document.getElementById("demo-heatmap");
         const scorePin = document.getElementById("demo-originality-score");
         const statusText = document.getElementById("demo-status-text");
@@ -411,44 +577,155 @@
         heatmap.style.opacity = "0";
         scorePin.style.opacity = "0"; 
         img.style.filter = "none";
+        videoEl.style.filter = "none";
         footerResult.style.color = "#443c39";
         scanBtn.disabled = true;
         scanBtn.textContent = "Processing File Matrix...";
         
-        statusText.textContent = "EXTRACTING SURFACE LEVEL METADATA...";
         statusBadge.textContent = "SCANNING";
         statusBadge.style.background = "#e6a23c"; 
-        footerResult.textContent = "PARSING DISCRETE COSINE TRANSFORM COEFFICIENTS...";
 
-        setTimeout(() => {
-          statusText.textContent = "RUNNING ERROR LEVEL ANALYSIS (ELA)...";
-          img.style.filter = "contrast(1.3) brightness(0.85) hue-rotate(180deg)";
-          footerResult.textContent = "COMPUTING PIXEL MATRIX INCONSISTENCIES...";
-        }, 1200);
-
-        setTimeout(() => {
-          statusText.textContent = "GENERATING GENERATIVE NOISE SPECTROGRAM HEATMAP...";
-          heatmap.style.opacity = "0.45"; 
-          heatmap.style.background = "radial-gradient(circle, rgba(230,103,146,0.8) 0%, rgba(101,93,160,0.2) 70%)";
-          footerResult.textContent = "HIGH FREQUENCY SYNTHETIC SIGNATURE DETECTED INSIDE IRIS LAYER";
-        }, 2400);
-
-        setTimeout(() => {
-          statusText.textContent = "ANALYSIS COMPLETED";
-          statusBadge.textContent = "PROCESSED";
-          statusBadge.style.background = "#5cb85c";
-          footerResult.textContent = "ALTERATION DETECTED — ARTIFICIAL GENERATION SIGNATURE PRESENT";
-          footerResult.style.color = "#c9302c";
+        if (activeMediaMode === 'image') {
+          statusText.textContent = "EXTRACTING SURFACE LEVEL METADATA...";
+          footerResult.textContent = "PARSING DISCRETE COSINE TRANSFORM COEFFICIENTS...";
           
-          scorePin.style.opacity = "1"; 
+          setTimeout(() => {
+            statusText.textContent = "RUNNING ERROR LEVEL ANALYSIS (ELA)...";
+            img.style.filter = "contrast(1.3) brightness(0.85) hue-rotate(180deg)";
+            footerResult.textContent = "COMPUTING PIXEL MATRIX INCONSISTENCIES...";
+          }, 1200);
+
+          setTimeout(() => {
+            statusText.textContent = "GENERATING GENERATIVE NOISE SPECTROGRAM HEATMAP...";
+            heatmap.style.opacity = "0.45"; 
+            heatmap.style.background = "radial-gradient(circle, rgba(230,103,146,0.8) 0%, rgba(101,93,160,0.2) 70%)";
+            footerResult.textContent = "HIGH FREQUENCY SYNTHETIC SIGNATURE DETECTED INSIDE IRIS LAYER";
+          }, 2400);
+
+          setTimeout(() => {
+            statusText.textContent = "ANALYSIS COMPLETED";
+            statusBadge.textContent = "PROCESSED";
+            statusBadge.style.background = "#5cb85c";
+            scorePin.textContent = "Originality Score: 14.6% (Highly Manipulated)";
+            scorePin.style.color = "#c9302c";
+            scorePin.style.background = "rgba(201,48,44,0.08)";
+            footerResult.textContent = "ALTERATION DETECTED — ARTIFICIAL GENERATION SIGNATURE PRESENT";
+            footerResult.style.color = "#c9302c";
+            scorePin.style.opacity = "1"; 
+            scanBtn.disabled = false;
+            scanBtn.textContent = "Run Forensic Scan Again";
+          }, 3600);
+
+        } else if (activeMediaMode === 'video') {
+          videoEl.play();
+          statusText.textContent = "DECONSTRUCTING VIDEO STREAM INTO FRAME BUFFERS...";
+          footerResult.textContent = "ANALYZING INTER-FRAME TEMPORAL CONSISTENCY...";
+
+          setTimeout(() => {
+            statusText.textContent = "RUNNING OPTICAL FLOW BLEND FORENSICS...";
+            videoEl.style.filter = "contrast(1.4) brightness(0.7) sepia(1) hue-rotate(320deg)";
+            footerResult.textContent = "DETECTING FACIAL LANDMARK DISPLACEMENT DELTAS...";
+          }, 1200);
+
+          setTimeout(() => {
+            statusText.textContent = "PARSING FRAME RATIO ARTIFACT ARRAYS...";
+            footerResult.textContent = "COMPUTING COMPRESSION COEF GAP PATTERNS...";
+          }, 2400);
+
+          setTimeout(() => {
+            statusText.textContent = "VIDEO STREAM FORENSIC PROCESSING COMPLETED";
+            statusBadge.textContent = "PROCESSED";
+            statusBadge.style.background = "#5cb85c";
+            scorePin.textContent = "Originality Score: 8.4% (AI Generated Video)";
+            scorePin.style.color = "#c9302c";
+            scorePin.style.background = "rgba(201,48,44,0.08)";
+            footerResult.textContent = "SYNTHETIC GENERATION SIGNATURE PRESENT — INTERPOLATED FRAMES DETECTED";
+            footerResult.style.color = "#c9302c";
+            scorePin.style.opacity = "1";
+            videoEl.style.filter = "none";
+            scanBtn.disabled = false;
+            scanBtn.textContent = "Run Video Scan Again";
+          }, 3600);
+
+        } else if (activeMediaMode === 'audio') {
+          audioEl.play();
+          statusText.textContent = "DECODING AUDIO STREAM WAVEFORM ARCHITECTURE...";
+          footerResult.textContent = "PARSING MEL-FREQUENCY CEPSTRAL COEFFICIENTS (MFCC)...";
           
-          scanBtn.disabled = false;
-          scanBtn.textContent = "Run Forensic Scan Again";
-        }, 3600);
+          const bars = document.querySelectorAll(".waveform-bar");
+          waveformAnimationInterval = setInterval(() => {
+            bars.forEach(bar => {
+              const activeDynamicHeight = 15 + Math.random() * 65;
+              bar.style.height = `${activeDynamicHeight}px`;
+              bar.style.backgroundColor = '#e66792';
+            });
+          }, 150);
+
+          setTimeout(() => {
+            statusText.textContent = "ANALYZING VOICE SPECTRUM ACOUSTIC HARMONICS...";
+            footerResult.textContent = "CROSS-CHECKING PHASE DISCONTINUITY PHONEME TRANSIENTS...";
+          }, 1200);
+
+          setTimeout(() => {
+            statusText.textContent = "COMPUTING GAN VOICE MATCH MATRICES...";
+            footerResult.textContent = "ISOLATING SYNTHETIC BACKGROUND NOISE FLOORS...";
+          }, 2400);
+
+          setTimeout(() => {
+            clearInterval(waveformAnimationInterval);
+            bars.forEach(bar => {
+              bar.style.height = '14px';
+              bar.style.backgroundColor = '#c9302c';
+            });
+            statusText.textContent = "AUDIO SPECTROGRAM OVERVIEW FINISHED";
+            statusBadge.textContent = "PROCESSED";
+            statusBadge.style.background = "#5cb85c";
+            scorePin.textContent = "Originality Score: 3.8% (AI Synthetic Voice)";
+            scorePin.style.color = "#c9302c";
+            scorePin.style.background = "rgba(201,48,44,0.08)";
+            footerResult.textContent = "DEEPFAKE AUDIO ALERT — SYNTHETIC VOICE OVERLAY LOGGED";
+            footerResult.style.color = "#c9302c";
+            scorePin.style.opacity = "1";
+            scanBtn.disabled = false;
+            scanBtn.textContent = "Run Audio Scan Again";
+          }, 3600);
+
+        } else if (activeMediaMode === 'plagiarism') {
+          term.innerHTML = `> INITIALIZING REVERSE SEMANTIC INDEX SEARCH...<br>> SCANNING TEXT FIELD INTAKE MANIFEST...`;
+          statusText.textContent = "TOKENIZING STRINGS AND MAPPING SENTENCE SHINGLES...";
+          footerResult.textContent = "COMPUTING MINHASH SIGNATURE ARRAYS...";
+
+          setTimeout(() => {
+            term.innerHTML += `<br><br><span style="color:#ffffff;">"Veritas is an open-source framework designed to look beneath structural media layers to isolate local anomalies and verify cryptographic data signatures across multi-industry queues in real time."</span>`;
+            term.innerHTML += `<br><br>> CROSS-REFERENCING SHINGLES AGAINST GLOBAL REPOSITORIES...`;
+            statusText.textContent = "RUNNING SHINGLE VERIFICATION AGAINST GLOBAL LIVE DATABASES...";
+          }, 1200);
+
+          setTimeout(() => {
+            term.innerHTML += `<br>> FETCHING DUPLICATE ENTRIES FROM ACADEMIC PORTALS...<br>> WARNING: MATCHING PROSE PATTERNS FOUND IN SOURCE LOG #2841`;
+            statusText.textContent = "COMPILING BLOCK CORRELATION REPORT...";
+          }, 2400);
+
+          setTimeout(() => {
+            term.innerHTML += `<br>> ENGINE PROCESS TERMINATED. SIMILARITY MATCH IDENTIFIED.`;
+            statusText.textContent = "TEXT CORRELATION SEARCH COMPLETED";
+            statusBadge.textContent = "PROCESSED";
+            statusBadge.style.background = "#5cb85c";
+            
+            scorePin.textContent = "Originality Score: 41.2% (Plagiarized Copy Found)";
+            scorePin.style.color = "#c9302c";
+            scorePin.style.background = "rgba(201,48,44,0.08)";
+            
+            footerResult.textContent = "DUPLICATE CONTENT ENCOUNTERED — REPLICATED PROSE CORRELATION INDEX LOGGED";
+            footerResult.style.color = "#c9302c";
+            scorePin.style.opacity = "1";
+            scanBtn.disabled = false;
+            scanBtn.textContent = "Run Plagiarism Check Again";
+          }, 3600);
+        }
       });
     }
 
-    // Form onboarding submission pipeline with Duplicate Click Prevention
     const signupForm = document.getElementById("signup-form");
     if(signupForm) {
       signupForm.addEventListener("submit", async function(e) {
@@ -458,7 +735,6 @@
         const errBox = document.getElementById("form-error");
         errBox.textContent = "";
 
-        // UI State Lock: Disable button instantly to prevent duplicate submissions
         submitButton.disabled = true;
         const originalButtonText = submitButton.textContent;
         submitButton.textContent = "Securing Placement Slot...";
@@ -480,7 +756,6 @@
 
           if (!res.ok) {
             errBox.textContent = data.error || "An error occurred.";
-            // Re-enable button if server side returns an expected processing error
             submitButton.disabled = false;
             submitButton.textContent = originalButtonText;
           } else {
@@ -488,7 +763,6 @@
           }
         } catch(err) {
           errBox.textContent = "Network error. Please try again.";
-          // Re-enable button on connection loss drops so they can retry submission safely
           submitButton.disabled = false;
           submitButton.textContent = originalButtonText;
         }
