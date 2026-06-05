@@ -1,72 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Verification Slot Reserved | VERITAS</title>
-  <link rel="stylesheet" href="css/style.css"> <style>
-    body {
-      background: #faf8f5;
-      color: #2b2625;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Application Confirmed — Veritas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" />
+  
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      background-color: #f6f2ee;
+      color: #1c1816;
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
       display: flex;
       justify-content: center;
       align-items: center;
+      padding: 2rem;
+    }
+
+    /* Standard Native Browser Cursor Configuration */
+    html, body, a {
+      cursor: auto !important;
+    }
+    a:hover {
+      cursor: pointer !important;
+    }
+
+    .thankyou-page-wrapper {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
       height: 100vh;
-      margin: 0;
+      background: linear-gradient(135deg, #f6f2ee 0%, #daafbb 40%, #c5c1e0 70%, #f6f2ee 100%);
+      background-size: 100% 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1.5rem;
+      z-index: 1;
     }
-    .thank-you-card {
+
+    .thankyou-luxury-card {
+      position: relative;
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(30px);
+      -webkit-backdrop-filter: blur(30px);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      border-radius: 40px;
+      max-width: 580px;
+      width: 100%;
+      padding: 3.5rem;
       text-align: center;
-      padding: 3rem 2rem;
-      background: #ffffff;
-      border: 1px solid #eade94;
-      border-radius: 24px;
-      box-shadow: 0 20px 40px rgba(43, 38, 37, 0.05);
-      max-width: 480px;
-      width: 90%;
+      box-shadow: 0 40px 80px rgba(135, 130, 160, 0.15);
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
     }
-    .badge-icon {
+
+    .success-icon-badge {
+      font-family: 'Playfair Display', serif !important;
+      font-size: 2.5rem;
+      color: #9e8170;
+      margin-bottom: 0.25rem;
+      line-height: 1;
+    }
+
+    .thankyou-luxury-card h1 {
+      font-family: 'Playfair Display', serif !important;
       font-size: 3rem;
-      color: #8c763e;
-      margin-bottom: 1.5rem;
+      letter-spacing: -0.01em;
+      color: #1c1816;
+      line-height: 1.2;
     }
-    h1 {
-      font-size: 2.2rem;
-      font-weight: 300;
-      letter-spacing: -0.03em;
-      margin: 0 0 1rem 0;
-      color: #1a1615;
+
+    .thankyou-luxury-card p {
+      font-family: 'Inter', sans-serif !important;
+      color: #1a1513;
+      font-size: 1.2rem;
+      line-height: 1.75;
     }
-    p {
-      color: #615652;
-      line-height: 1.6;
-      margin: 0 0 2rem 0;
-      font-size: 1rem;
+
+    .visual-viewport-frame {
+      position: relative;
+      width: 100%;
+      height: 240px;
+      border-radius: 20px;
+      overflow: hidden;
+      margin: 0.5rem 0;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+      background: #000;
     }
-    .back-btn {
-      display: inline-block;
+
+    .visual-viewport-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Asymmetric Premium Shape Configuration for Back Button Alignment */
+    .btn-luxury-back {
+      background: #1c1816;
+      color: #fdfcfb;
+      border: none;
+      padding: 1.2rem 2.5rem;
+      border-radius: 24px 4px 24px 4px !important;
+      font-size: 1.15rem;
+      font-weight: 700;
+      transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1) !important;
       text-decoration: none;
-      background: #1a1615;
-      color: #ffffff;
-      padding: 0.9rem 2rem;
-      border-radius: 12px;
-      font-weight: 500;
-      font-size: 0.95rem;
-      transition: background 0.2s ease;
+      margin-top: 0.5rem;
+      display: inline-block;
+      width: 100%;
     }
-    .back-btn:hover {
-      background: #38312e;
+
+    .btn-luxury-back:hover {
+      background: #9e8170;
+      box-shadow: 0 15px 35px rgba(158, 129, 112, 0.25);
+      border-radius: 4px 24px 4px 24px !important;
     }
   </style>
 </head>
 <body>
 
-  <div class="thank-you-card">
-    <div class="badge-icon">✦</div>
-    <h1>Placement Secured</h1>
-    <p>Thank you for registering for early access. Your placement position has been recorded in our secure network ledger. We will reach out via your provided email credentials as onboarding slots scale open.</p>
-    <a href="/index.html" class="back-btn">Return to Platform</a>
+  <div class="thankyou-page-wrapper">
+    <div class="thankyou-luxury-card">
+      <div class="success-icon-badge">✦</div>
+      <h1 id="js-greeting-header">Placement Secured</h1>
+      
+      <p>Thank you for registering for early access. Your placement position has been recorded in our secure network ledger.</p>
+      
+      <div class="visual-viewport-frame">
+        <!-- Displaying local eye image configuration cleanly -->
+        <img src="./eye.png" alt="Verification Complete" />
+      </div>
+      
+      <p id="interview-msg" style="font-size: 1.15rem !important; color: #332b27; margin: 0.25rem 0; font-weight: 500;"></p>
+      
+      <a href="index.html" class="btn-luxury-back">Return to Platform</a>
+    </div>
   </div>
 
+  <script>
+    // Safely extract parameter payload strings from URL queries
+    const params = new URLSearchParams(window.location.search);
+    const name = params.get("name");
+    const interview = params.get("interview");
+
+    if (name) {
+      document.getElementById("js-greeting-header").textContent = `Thanks, ${decodeURIComponent(name)}`;
+    }
+
+    const msg = document.getElementById("interview-msg");
+    if (interview === "yes") {
+      msg.textContent = "Since you indicated willingness to speak with us, our team will reach out directly via your provided email channel within 48 hours to coordinate a brief 15-minute user interview.";
+    } else {
+      msg.textContent = "We will notify you via your registered email address as soon as your access credentials become available in our upcoming distribution batch.";
+    }
+  </script>
 </body>
 </html>
