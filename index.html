@@ -1,235 +1,488 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VERITAS | Media Forensics & AI Content Transparency</title>
-  <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Veritas — Media Authenticity Verification Platform</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
   <style>
-    /* Premium Minimalist Styling Base */
-    body {
-      background: #faf8f5;
-      color: #2b2625;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      margin: 0;
-      padding: 0;
+    /* Clean baseline sans-serif typeface fallback for structural UI elements */
+    html, body, input, select, textarea, button, span, label {
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Standard Native Browser Cursor Configuration */
+    html, body, a, button, select, input, label {
+      cursor: auto !important;
+    }
+    a:hover, button:hover, select:hover, input[type="submit"]:hover, label:hover {
+      cursor: pointer !important;
+    }
+
+    /* Custom Asymmetric Border Radius Shapes for Premium Buttons */
+    .btn-luxury-solid, .btn-luxury-outline, #js-trigger-scan, .signup-form button {
+      border-radius: 24px 4px 24px 4px !important;
+      transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1) !important;
+    }
+    
+    .btn-luxury-solid:hover, #js-trigger-scan:hover, .signup-form button:hover {
+      border-radius: 4px 24px 4px 24px !important;
+    }
+
+    .btn-luxury-outline:hover {
+      border-radius: 4px 24px 4px 24px !important;
+    }
+
+    /* Bumping core presentation sizes for optimal readability */
+    p {
+      font-family: 'Inter', sans-serif !important;
+      font-size: 1.2rem !important; 
+      line-height: 1.75 !important;
+      color: #1a1513 !important; 
+    }
+
+    /* Formatting fix for the main Hero Content block wrapper */
+    .hero-split-canvas {
+      display: flex; 
+      justify-content: center; 
+      text-align: center; 
+      padding: 11rem 2rem 9rem 2rem;
+      width: 100%;
+    }
+
+    .hero-story-container {
+      max-width: 840px; 
+      margin: 0 auto;
       display: flex;
       flex-direction: column;
       align-items: center;
-      min-height: 100vh;
     }
-    .hero-container {
-      max-width: 900px;
-      width: 90%;
-      margin: 4rem auto;
-      text-align: center;
-    }
-    .brand-logo {
-      font-size: 1.5rem;
-      font-weight: 700;
-      letter-spacing: 0.15em;
-      color: #1a1615;
-      text-transform: uppercase;
-      margin-bottom: 2rem;
-    }
-    h1 {
-      font-size: 3rem;
-      font-weight: 300;
-      letter-spacing: -0.04em;
-      line-height: 1.15;
-      color: #1a1615;
-      margin: 0 0 1.5rem 0;
-    }
-    h1 em {
-      font-style: italic;
-      color: #8c763e;
-    }
-    .subtitle {
-      font-size: 1.25rem;
-      color: #615652;
-      max-width: 600px;
-      margin: 0 auto 3rem auto;
-      line-height: 1.6;
-    }
-    .signup-card {
-      background: #ffffff;
-      border: 1px solid #eade94;
-      border-radius: 24px;
-      padding: 2.5rem;
-      box-shadow: 0 20px 40px rgba(43, 38, 37, 0.04);
-      max-width: 550px;
-      margin: 0 auto;
-      text-align: left;
-    }
-    .signup-card h3 {
-      margin: 0 0 0.5rem 0;
-      font-size: 1.4rem;
-      font-weight: 400;
-      color: #1a1615;
-    }
-    .form-group {
-      margin-bottom: 1.25rem;
+
+    /* Isolated Interactive Demo Workspace Section */
+    .standalone-demo-workspace {
+      padding: 6rem 2rem;
       display: flex;
       flex-direction: column;
-    }
-    .form-group label {
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      color: #8c763e;
-      margin-bottom: 0.5rem;
-      text-transform: uppercase;
-    }
-    .form-group input, .form-group select {
-      padding: 0.85rem 1rem;
-      border: 1px solid #dcd6d2;
-      border-radius: 12px;
-      font-size: 1rem;
-      background: #faf8f5;
-      color: #2b2625;
-      outline: none;
-      transition: border-color 0.2s;
-    }
-    .form-group input:focus, .form-group select:focus {
-      border-color: #8c763e;
-    }
-    .checkbox-group {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.75rem;
-      margin: 1.5rem 0;
-      cursor: pointer;
-    }
-    .checkbox-group input {
-      margin-top: 0.2rem;
-    }
-    .checkbox-group span {
-      font-size: 0.9rem;
-      color: #615652;
-      line-height: 1.4;
-    }
-    .btn-luxury-solid {
-      background: #1a1615;
-      color: #ffffff;
-      border: none;
-      padding: 1.1rem;
-      font-size: 1rem;
-      font-weight: 500;
-      border-radius: 14px;
-      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
       width: 100%;
-      transition: background 0.2s, opacity 0.2s;
     }
-    .btn-luxury-solid:hover {
-      background: #38312e;
+
+    .demo-card-wrapper {
+      max-width: 960px;
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
     }
-    .btn-luxury-solid:disabled {
-      background: #8c8581;
-      cursor: not-allowed;
-      opacity: 0.7;
+
+    .luxury-radar-card {
+      width: 100% !important;
+      max-width: 100% !important;
+      padding: 2.5rem !important;
     }
-    .form-error {
-      color: #8a2525;
-      font-size: 0.85rem;
-      font-weight: bold;
-      margin-top: 0.5rem;
-      min-height: 1.2rem;
+
+    .visual-viewport-box {
+      position: relative;
+      overflow: hidden;
+      border-radius: 14px;
+      width: 100%;
+      max-height: 480px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #000;
+    }
+
+    .visual-viewport-box img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      display: block;
+    }
+
+    .demo-action-trigger-zone {
+      margin-top: 2.5rem;
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+
+    /* Premium Balanced Column Grid Fix for Features Section */
+    .product-tour-layout {
+      padding: 6rem 2rem;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .tour-section-inner {
+      max-width: 1140px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .expanded-product-intro h2 {
+      font-family: 'Playfair Display', serif !important; 
+      font-weight: 700 !important;
+      font-size: 3.2rem !important; 
+      letter-spacing: -0.01em !important;
+      color: #1c1816 !important;
+      margin-bottom: 1.25rem !important;
+    }
+
+    .expanded-product-intro p {
+      font-family: 'Inter', sans-serif !important;
+      font-size: 1.35rem !important; 
+      color: #2b2522 !important;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .tour-grid-framework {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 4.5rem 5rem; 
+      margin-top: 5rem;
+      text-align: left;
+    }
+
+    .tour-feature-block {
+      background: transparent;
+      padding: 0;
+      border: none;
+      box-shadow: none;
+    }
+
+    .tour-feature-block h3 {
+      font-family: 'Playfair Display', serif !important; 
+      font-weight: 700 !important;
+      font-size: 1.75rem !important; 
+      letter-spacing: -0.01em !important;
+      margin-bottom: 1rem !important;
+      color: #1c1816 !important;
+    }
+
+    .tour-feature-block p {
+      font-family: 'Inter', sans-serif !important;
+      font-size: 1.15rem !important; 
+      line-height: 1.75 !important;
+      color: #332b27 !important;
+    }
+
+    @media (max-width: 868px) {
+      .tour-grid-framework {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+      .expanded-product-intro h2 {
+        font-size: 2.5rem !important;
+      }
     }
   </style>
 </head>
 <body>
 
-  <div class="hero-container">
-    <div class="brand-logo">Veritas</div>
-    <h1>Providing transparency and evidence for <em>AI-generated content</em></h1>
-    <p class="subtitle">Empowering platforms, journalists, and teams with verifiable cryptographic and forensic insights to authenticate digital media records instantly.</p>
+  <div class="system-ticker-container">
+    <div class="ticker-wrap-track">
+      <div class="ticker-segment">
+        <span class="ticker-item">VERITAS SECURE CORE ACTIVE</span> <span class="ticker-divider"><span class="ticker-dot"></span></span>
+        <span class="ticker-item">SCAN ENGINE: ONLINE</span> <span class="ticker-divider"><span class="ticker-dot"></span></span>
+        <span class="ticker-item">DEEPFAKE FRAUD MATRIX DEPLOYED</span> <span class="ticker-divider"><span class="ticker-dot"></span></span>
+        <span class="ticker-item">DATA INTEGRITY BLOCK: 100% SECURE</span> <span class="ticker-divider"><span class="ticker-dot"></span></span>
+      </div>
+      <div class="ticker-segment">
+        <span class="ticker-item">VERITAS SECURE CORE ACTIVE</span> <span class="ticker-divider"><span class="ticker-dot"></span></span>
+        <span class="ticker-item">SCAN ENGINE: ONLINE</span> <span class="ticker-divider"><span class="ticker-dot"></span></span>
+        <span class="ticker-item">DEEPFAKE FRAUD MATRIX DEPLOYED</span> <span class="ticker-divider"><span class="ticker-dot"></span></span>
+        <span class="ticker-item">DATA INTEGRITY BLOCK: 100% SECURE</span> <span class="ticker-divider"><span class="ticker-dot"></span></span>
+      </div>
+    </div>
+  </div>
 
-    <div class="signup-card">
-      <form class="signup-form" id="signup-form">
-        <h3>Request Invitation Slot</h3>
-        <p style="color: #615652; font-size: 0.95rem; margin-bottom: 1.5rem; margin-top: 0;">Fill out your basic details below to secure your placement.</p>
-        
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; width: 100%; margin-bottom: 0.25rem;">
-          <div class="form-group">
-            <label for="name">Your Full Name</label>
-            <input type="text" id="name" name="name" placeholder="Sarah Jenkins" required />
+  <nav>
+    <a href="#" class="logo" style="font-family: 'Playfair Display', serif !important; font-weight: 700; font-size: 1.8rem;">Veritas</a>
+    <ul class="nav-links">
+      <li><a href="#product-tour-section" style="font-size: 1.1rem; font-weight: 500;">Product Tour</a></li>
+      <li><a href="#signup" class="btn-nav-accent" style="font-size: 1.1rem; font-weight: 600;">Get Early Access</a></li>
+    </ul>
+  </nav>
+
+  <div class="premium-gradient-bg">
+    <header class="hero-split-canvas">
+      <div class="hero-story-container">
+        <h1 style="font-family: 'Playfair Display', serif !important; font-weight: 700; font-size: 5rem; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 1.5rem;">Veritas</h1>
+        <p style="font-family: 'Playfair Display', serif !important; font-style: italic; font-size: 2.6rem !important; font-weight: 600; margin-bottom: 2.5rem; color: #1c1816 !important; line-height: 1.3; letter-spacing: normal;">
+          Beyond detection, into derivation.
+        </p>
+        <p style="font-size: 1.35rem !important; margin-bottom: 3.5rem !important; color: #2b2522 !important; max-width: 720px; line-height: 1.8 !important;">
+          Veritas looks beneath the layers of any image to reveal modifications, edits, and fake computer-generated content in seconds. See the truth instantly.
+        </p>
+        <div class="hero-actions" style="display: flex; justify-content: center; gap: 1.5rem;">
+          <a href="#signup" class="btn-luxury-solid" style="padding: 1.2rem 2.5rem; font-size: 1.1rem; font-weight: 600;">Join the Waiting List</a>
+          <a href="#demo-workspace" class="btn-luxury-outline" id="js-scroll-to-demo" style="padding: 1.2rem 2.5rem; font-size: 1.1rem; font-weight: 600;">See how it works</a>
+        </div>
+      </div>
+    </header>
+  </div>
+
+  <section id="demo-workspace" class="standalone-demo-workspace">
+    <div class="section-inner" style="width: 100%; max-width: 960px;">
+      <h2 style="font-family: 'Playfair Display', serif !important; font-weight: 700; font-size: 3rem; letter-spacing: -0.01em; margin-bottom: 1.25rem; color: #1c1816;">Experience the Core Engine</h2>
+      <p style="color: #332b27 !important; max-width: 640px; margin: 0 auto 3.5rem auto; font-size: 1.2rem !important;">Interact with the active analysis container. Hit the scan action button below to run a real-time forensics computation sequence.</p>
+      
+      <div class="demo-card-wrapper">
+        <div class="luxury-radar-card">
+          <div class="radar-status-bar" style="display: flex; justify-content: space-between; align-items: center; position: relative; font-size: 0.95rem; font-weight: 600; letter-spacing: 0.05em;">
+            <span id="demo-status-text">SYSTEM STANDBY — AWAITING SCAN INITIALIZATION</span>
+            
+            <div style="display: flex; align-items: center; gap: 1rem;">
+              <span id="demo-originality-score" style="opacity: 0; transition: opacity 0.4s ease; font-weight: 700; font-size: 0.95rem; color: #c9302c; background: rgba(201,48,44,0.08); padding: 0.35rem 0.85rem; border-radius: 6px;">
+                Originality Score: 14.6% (Highly Manipulated)
+              </span>
+              <span id="demo-status-badge">READY</span>
+            </div>
           </div>
-          <div class="form-group">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" placeholder="sarah@company.com" required />
+
+          <div class="visual-viewport-box">
+            <img
+              id="simulation-base-image"
+              src="./eye.avif"
+              alt="Veritas Forensic Evaluation Matrix"
+              style="transition: filter 0.5s ease;"
+            />
+            <div class="heatmap-overlay-node heatmap-zone-cat" id="demo-heatmap" style="opacity: 0; transition: opacity 0.4s ease;"></div>
+          </div>
+
+          <div class="radar-footer-bar" style="font-size: 0.95rem; font-weight: 600; letter-spacing: 0.05em;">
+            <span>VERITAS SPECTRUM REPORT</span>
+            <span id="demo-footer-result" style="font-weight: 700; color: #332b27;">READY FOR INTAKE</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-action-trigger-zone">
+        <button class="btn-luxury-solid" id="js-trigger-scan" style="padding: 1.2rem 3.5rem; font-size: 1.15rem; font-weight: 700; letter-spacing: 0.05em;">Start Forensic Scan</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="product-tour-section" class="product-tour-layout" style="border-top: 1px solid rgba(28,24,22,0.05); background: rgba(28, 24, 22, 0.01);">
+    <div class="tour-section-inner">
+      
+      <div class="expanded-product-intro" style="text-align: center;">
+        <h2>Deep-Dive Platform Features</h2>
+        <p>Veritas goes beyond binary surface flags to provide complete data derivation. Here is exactly what our forensic ecosystem uncovers in under 30 seconds:</p>
+      </div>
+
+      <div class="tour-grid-framework">
+        
+        <div class="tour-feature-block">
+          <h3>Comprehensive Forensic Report</h3>
+          <p>Get a full, audit-ready cryptographic breakdown of the file. Veritas extracts embedded exchangeable image file (EXIF) metadata, verifies camera serial arrays, parses discrete cosine transform coefficient deltas, and logs editing software traces instantly.</p>
+        </div>
+
+        <div class="tour-feature-block">
+          <h3>Generative Noise Heatmaps</h3>
+          <p>Isolate local pixel anomalies. Our specialized vision engine processes error level analysis (ELA) maps across structural saving passes, rendering clear color-coded zones to pinpoint precisely where an image area was artificially synthesized or manipulated.</p>
+        </div>
+
+        <div class="tour-feature-block">
+          <h3>Derivation in Under 30s</h3>
+          <p>Enterprise security operating at velocity. Upload media attachments smoothly to trigger immediate batch checking loops across distributed validation pipelines—delivering definitive, tamper-evident answers without bottlenecking production workflows.</p>
+        </div>
+
+        <div class="tour-feature-block">
+          <h3>Multi-Industry Trust Core</h3>
+          <p>Built for fields where absolute clarity is non-negotiable. Protect newsroom source feeds from sophisticated deepfakes, confirm document authenticity in onboarding queues, and perform verification of structural digital evidence profiles smoothly.</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section id="signup" class="signup-section" style="padding: 7rem 2rem;">
+    <div class="section-inner signup-layout">
+      <div class="signup-info" style="text-align: left;">
+        <h2 style="font-family: 'Playfair Display', serif !important; font-weight: 700; font-size: 3rem; letter-spacing: -0.01em; margin-bottom: 1.5rem;">Get early access to Veritas</h2>
+        <p style="font-size: 1.15rem !important; color: #332b27; margin-bottom: 2rem;">We are rolling out invitations in controlled batches to ensure premium performance. Reserve your private staging invitation today.</p>
+        <ul class="perks-list" style="font-size: 1.1rem; line-height: 1.7; color: #332b27;">
+          <li style="margin-bottom: 0.75rem;">Early access to the cloud verification ecosystem dashboard</li>
+          <li style="margin-bottom: 0.75rem;">Direct milestone update notes sent straight from our design team</li>
+          <li style="margin-bottom: 0.75rem;">Priority onboarding routes for your wider organization members</li>
+        </ul>
+        <p style="font-size: 1.1rem !important; color: #443c39; margin-top: 3rem; font-weight: 600;">
+          CURRENT SIGNUPS WAITING: <strong id="signup-count" style="color: #1a1513; font-weight: 800;">...</strong> ACTIVE RESERVATIONS
+        </p>
+      </div>
+
+      <form class="signup-form" id="signup-form" style="padding: 3rem; border-radius: 24px;">
+        <h3 style="font-family: 'Playfair Display', serif !important; font-size: 1.8rem; font-weight: 700; margin-bottom: 0.5rem; letter-spacing: -0.01em;">Request Invitation Slot</h3>
+        <p style="color: #443c39; font-size: 1.05rem !important; margin-bottom: 2rem;">Fill out your basic details below to secure your placement.</p>
+        
+        <div class="form-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; width: 100%;">
+          <div class="form-group" style="text-align: left;">
+            <label for="name" style="font-size: 0.85rem; font-weight: 700; letter-spacing: 0.05em; margin-bottom: 0.5rem; display: block;">YOUR FULL NAME</label>
+            <input type="text" id="name" name="name" placeholder="Sarah Jenkins" required style="padding: 1rem; font-size: 1.05rem; border-radius: 10px; width: 100%;" />
+          </div>
+          <div class="form-group" style="text-align: left;">
+            <label for="email" style="font-size: 0.85rem; font-weight: 700; letter-spacing: 0.05em; margin-bottom: 0.5rem; display: block;">EMAIL ADDRESS</label>
+            <input type="email" id="email" name="email" placeholder="sarah@company.com" required style="padding: 1rem; font-size: 1.05rem; border-radius: 10px; width: 100%;" />
           </div>
         </div>
         
-        <div class="form-group" style="width: 100%;">
-          <label for="role">Your Profession / Field</label>
-          <select id="role" name="role">
+        <div class="form-group" style="width: 100%; text-align: left; margin-bottom: 1.5rem;">
+          <label for="role" style="font-size: 0.85rem; font-weight: 700; letter-spacing: 0.05em; margin-bottom: 0.5rem; display: block;">YOUR PROFESSION / FIELD</label>
+          <select id="role" name="role" style="padding: 1rem; font-size: 1.05rem; border-radius: 10px; width: 100%; height: auto; background-color: #fff;">
             <option value="Journalist">Journalist or Media Creator</option>
             <option value="Lawyer">Legal or Forensic Professional</option>
             <option value="HR Professional">Corporate Trust & HR Security</option>
             <option value="Fact Checker">Independent Researcher / Fact Checker</option>
-            <option value="Digital Safety Cons">Everyday Consumer (Protecting Identity)</option>
+            <option value="Digital Safety Cons">Everyday Consumer (Protecting Personal Media & Identity)</option>
             <option value="Fraud Investigator">Anti-Fraud or Scam Prevention Specialist</option>
             <option value="Tech Enthusiast">Early Adopter / Open Beta Explorer</option>
           </select>
         </div>
         
-        <label class="checkbox-group">
-          <input type="checkbox" id="interviewOk" name="interviewOk" />
-          <span>I'm happy to provide product feedback or participate in a quick 15-minute user interview.</span>
+        <label class="checkbox-group" style="display: flex; align-items: flex-start; gap: 0.75rem; text-align: left; margin-bottom: 2rem;">
+          <input type="checkbox" id="interviewOk" name="interviewOk" style="margin-top: 0.3rem; transform: scale(1.1);" />
+          <span style="font-size: 1.05rem; line-height: 1.5; color: #332b27; font-weight: 500;">I'm happy to provide product feedback or participate in a quick 15-minute user interview.</span>
         </label>
         
-        <p class="form-error" id="form-error"></p>
-        <button type="submit" class="btn-luxury-solid">Request Early Access Spot</button>
+        <p class="form-error" id="form-error" style="color: #8a2525; font-size: 1rem; font-weight: bold; margin-bottom: 1rem;"></p>
+        <button type="submit" class="btn-luxury-solid" style="width: 100%; padding: 1.2rem; font-size: 1.15rem; font-weight: 700;">Request Early Access Spot</button>
       </form>
     </div>
-  </div>
+  </section>
+
+  <footer>
+    <a href="#" class="logo" style="font-family: 'Playfair Display', serif !important; font-weight: 700; font-size: 1.4rem;">Veritas</a>
+    <p style="font-size: 1.05rem !important; color: #5c534f !important; margin-top: 0.5rem;">© 2026 Veritas Media Verification. All rights reserved.</p>
+  </footer>
 
   <script>
-    document.getElementById('signup-form').addEventListener('submit', async (e) => {
-      e.preventDefault();
-      
-      const form = e.target;
-      const submitButton = form.querySelector('button[type="submit"]');
-      const errorElement = document.getElementById('form-error');
-      
-      // 1. Instantly freeze the button to stop multi-clicks from making duplicate rows
-      submitButton.disabled = true;
-      const originalButtonText = submitButton.innerText;
-      submitButton.innerText = "Securing Slot...";
-      errorElement.innerText = "";
-
-      // 2. Wrap form values into payload configuration
-      const formData = {
-        name: document.getElementById('name').value,
-        email: document.getElementById('email').value,
-        role: document.getElementById('role').value,
-        interviewOk: document.getElementById('interviewOk').checked
-      };
-
+    // Fetch live signups count dynamically
+    async function updateSignupCounter() {
       try {
-        // 3. Route parameters through local Express proxy pipeline
-        const response = await fetch('/api/signup', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(formData)
-        });
-
-        const result = await response.json();
-
-        if (response.ok && result.success) {
-          // 4. On successful data sync, drop client straight into thank you node
-          window.location.href = '/thank-you.html';
-        } else {
-          throw new Error(result.error || 'Submission rejected by network pipeline.');
+        const response = await fetch('/api/signups/count');
+        if (response.ok) {
+          const data = await response.json();
+          document.getElementById('signup-count').textContent = data.count;
         }
       } catch (err) {
-        // 5. Safe fallback: restore button layout if transmission hit network errors
-        errorElement.innerText = err.message || "Failed to submit entry. Please try again.";
-        submitButton.disabled = false;
-        submitButton.innerText = originalButtonText;
+        console.error("Counter data retrieval link failure:", err);
+        document.getElementById('signup-count').textContent = "—";
       }
-    });
-  </script>
+    }
+    document.addEventListener("DOMContentLoaded", updateSignupCounter);
 
+    // Custom Target Offset Scroll implementation for precise positioning
+    document.getElementById("js-scroll-to-demo").addEventListener("click", function(e) {
+      e.preventDefault();
+      const targetElement = document.getElementById("demo-workspace");
+      const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+      
+      // Removed the residual template citation markup tag that caused the crash
+      const targetOffsetPosition = elementPosition + 140;
+
+      window.scrollTo({
+        top: targetOffsetPosition,
+        behavior: "smooth"
+      });
+    });
+
+    // Forensics scan routine animation engine
+    const scanBtn = document.getElementById("js-trigger-scan");
+    if (scanBtn) {
+      scanBtn.addEventListener("click", function(e) {
+        e.preventDefault();
+        
+        const img = document.getElementById("simulation-base-image");
+        const heatmap = document.getElementById("demo-heatmap");
+        const scorePin = document.getElementById("demo-originality-score");
+        const statusText = document.getElementById("demo-status-text");
+        const statusBadge = document.getElementById("demo-status-badge");
+        const footerResult = document.getElementById("demo-footer-result");
+
+        heatmap.style.opacity = "0";
+        scorePin.style.opacity = "0"; 
+        img.style.filter = "none";
+        footerResult.style.color = "#443c39";
+        scanBtn.disabled = true;
+        scanBtn.textContent = "Processing File Matrix...";
+        
+        statusText.textContent = "EXTRACTING SURFACE LEVEL METADATA...";
+        statusBadge.textContent = "SCANNING";
+        statusBadge.style.background = "#e6a23c"; 
+        footerResult.textContent = "PARSING DISCRETE COSINE TRANSFORM COEFFICIENTS...";
+
+        setTimeout(() => {
+          statusText.textContent = "RUNNING ERROR LEVEL ANALYSIS (ELA)...";
+          img.style.filter = "contrast(1.3) brightness(0.85) hue-rotate(180deg)";
+          footerResult.textContent = "COMPUTING PIXEL MATRIX INCONSISTENCIES...";
+        }, 1200);
+
+        setTimeout(() => {
+          statusText.textContent = "GENERATING GENERATIVE NOISE SPECTROGRAM HEATMAP...";
+          heatmap.style.opacity = "0.45"; 
+          heatmap.style.background = "radial-gradient(circle, rgba(230,103,146,0.8) 0%, rgba(101,93,160,0.2) 70%)";
+          footerResult.textContent = "HIGH FREQUENCY SYNTHETIC SIGNATURE DETECTED INSIDE IRIS LAYER";
+        }, 2400);
+
+        setTimeout(() => {
+          statusText.textContent = "ANALYSIS COMPLETED";
+          statusBadge.textContent = "PROCESSED";
+          statusBadge.style.background = "#5cb85c";
+          footerResult.textContent = "ALTERATION DETECTED — ARTIFICIAL GENERATION SIGNATURE PRESENT";
+          footerResult.style.color = "#c9302c";
+          
+          scorePin.style.opacity = "1"; 
+          
+          scanBtn.disabled = false;
+          scanBtn.textContent = "Run Forensic Scan Again";
+        }, 3600);
+      });
+    }
+
+    // Form onboarding submission pipeline
+    const signupForm = document.getElementById("signup-form");
+    if(signupForm) {
+      signupForm.addEventListener("submit", async function(e) {
+        e.preventDefault();
+        const errBox = document.getElementById("form-error");
+        errBox.textContent = "";
+
+        const payload = {
+          name: document.getElementById("name").value,
+          email: document.getElementById("email").value,
+          role: document.getElementById("role").value,
+          interviewOk: document.getElementById("interviewOk").checked
+        };
+
+        try {
+          const res = await fetch('/api/signup', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+          const data = await res.json();
+
+          if (!res.ok) {
+            errBox.textContent = data.error || "An error occurred.";
+          } else {
+            window.location.href = `thank-you.html?name=${encodeURIComponent(payload.name)}&interview=${payload.interviewOk ? 'yes' : 'no'}`;
+          }
+        } catch(err) {
+          errBox.textContent = "Network error. Please try again.";
+        }
+      });
+    }
+  </script>
 </body>
 </html>
