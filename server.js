@@ -6,8 +6,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // IMPORTANT: Triple check there are no spaces or hidden newline blocks here
-const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzb9SPVPDWU0bncyi2IMin69vKZD2iWfNvIPyaukZesR4aO5YfGHDBfvjvR_MiuYtb/exec";
-app.use(express.json());
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxg7Vj5izn9Js21imixOqYL4_hB-SdKsMwURE7tD5cQHuIJJnv3qL4oAk3G3Huj03By/exec";app.use(express.json());
 app.use(express.static(__dirname));
 
 // 1. Submit form data directly to permanent Google Sheets storage
