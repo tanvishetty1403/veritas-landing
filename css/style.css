@@ -864,3 +864,110 @@ body.cursor-hovering .custom-cursor-dot {
   border-color: #1a1513 !important;
   box-shadow: 0 0 0 3px rgba(26, 21, 19, 0.08);
 }
+
+/* ==========================================================================
+   Veritas Ultimate Mobile Responsiveness Patch Fix
+   ========================================================================== */
+
+@media (max-width: 868px) {
+  /* 1. Reset Core Navigation Alignment to avoid text overlap collisions */
+  nav {
+    flex-direction: column !important;
+    gap: 1rem !important;
+    padding: 1.5rem 1rem !important;
+    height: auto !important;
+    text-align: center !important;
+  }
+
+  nav .nav-links {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 1.5rem !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  nav .nav-links li {
+    margin: 0 !important;
+    display: inline-block !important;
+  }
+
+  nav .btn-nav-accent {
+    padding: 0.6rem 1.2rem !important;
+    font-size: 0.95rem !important;
+    display: inline-block !important;
+  }
+
+  /* 2. Break the Side-By-Side Split on the Signup Layout Staging Section */
+  .signup-section {
+    padding: 4rem 1rem !important;
+    width: 100% !important;
+  }
+
+  .signup-layout {
+    display: flex !important;
+    flex-direction: column !important; /* Forces layout stacking sequentially */
+    gap: 3rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+
+  .signup-info {
+    width: 100% !important;
+    max-width: 100% !important;
+    text-align: center !important;
+    padding: 0 0.5rem !important;
+  }
+
+  .signup-info h2 {
+    font-size: 2.2rem !important;
+    text-align: center !important;
+    line-height: 1.2 !important;
+  }
+
+  .signup-info p {
+    text-align: center !important;
+    font-size: 1.1rem !important;
+  }
+
+  .perks-list {
+    text-align: left !important;
+    display: inline-block !important;
+    max-width: 100% !important;
+    margin: 1.5rem auto 0 auto !important;
+  }
+
+  /* 3. Fully Calibrate the Input Form Shell Elements */
+  .signup-form {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 2rem 1.25rem !important;
+    margin: 0 auto !important;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.05) !important;
+  }
+
+  .signup-form h3 {
+    font-size: 1.5rem !important;
+    text-align: center !important;
+  }
+
+  .signup-form p {
+    text-align: center !important;
+    font-size: 1rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  /* 4. Ticker Stream Optimization */
+  .system-ticker-container {
+    padding: 0.5rem 0 !important;
+  }
+  
+  .ticker-item {
+    font-size: 0.75rem !important;
+    letter-spacing: 0.05em !important;
+  }
+}
