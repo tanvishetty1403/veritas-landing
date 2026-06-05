@@ -866,17 +866,23 @@ body.cursor-hovering .custom-cursor-dot {
 }
 
 /* ==========================================================================
-   Veritas Ultimate Mobile Responsiveness Patch Fix
+   Veritas Ultimate Mobile Responsiveness & Premium Polish Pass Overrides
    ========================================================================== */
 
 @media (max-width: 868px) {
-  /* 1. Reset Core Navigation Alignment to avoid text overlap collisions */
+  /* 1. Ultra-Clean Navigation Alignment */
   nav {
     flex-direction: column !important;
-    gap: 1rem !important;
-    padding: 1.5rem 1rem !important;
+    gap: 1.25rem !important;
+    padding: 2rem 1.5rem !important;
     height: auto !important;
     text-align: center !important;
+    border-bottom: 1px solid rgba(28, 24, 22, 0.05) !important;
+  }
+
+  nav .logo {
+    font-size: 1.6rem !important;
+    margin-bottom: 0.25rem !important;
   }
 
   nav .nav-links {
@@ -884,7 +890,7 @@ body.cursor-hovering .custom-cursor-dot {
     flex-direction: row !important;
     justify-content: center !important;
     align-items: center !important;
-    gap: 1.5rem !important;
+    gap: 1.75rem !important;
     width: 100% !important;
     margin: 0 !important;
     padding: 0 !important;
@@ -892,82 +898,185 @@ body.cursor-hovering .custom-cursor-dot {
 
   nav .nav-links li {
     margin: 0 !important;
-    display: inline-block !important;
+  }
+
+  nav .nav-links li a {
+    font-size: 1rem !important;
   }
 
   nav .btn-nav-accent {
-    padding: 0.6rem 1.2rem !important;
+    padding: 0.6rem 1.5rem !important;
     font-size: 0.95rem !important;
-    display: inline-block !important;
+    border-radius: 24px 4px 24px 4px !important; /* Preserves signature premium asymmetry */
   }
 
-  /* 2. Break the Side-By-Side Split on the Signup Layout Staging Section */
-  .signup-section {
-    padding: 4rem 1rem !important;
+  /* 2. Fluid & Balanced Hero Presentation */
+  .hero-split-canvas {
+    padding: 6rem 1.5rem 5rem 1.5rem !important;
+  }
+
+  .hero-story-container p {
+    font-size: 1.1rem !important;
+    line-height: 1.7 !important;
+    padding: 0 0.5rem !important;
+  }
+
+  .hero-actions {
+    gap: 1rem !important;
+    margin-top: 1rem !important;
+  }
+
+  .hero-actions a {
     width: 100% !important;
+    text-align: center !important;
+    padding: 1rem 1.5rem !important;
+    font-size: 1.05rem !important;
+  }
+
+  /* 3. Interactive Engine Selector App-Switcher Layout */
+  .workspace-tab-row {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important; /* Converts switcher row into a clean, geometric 2x2 grid */
+    gap: 0.75rem !important;
+    margin-bottom: 2.5rem !important;
+    padding: 0 0.5rem !important;
+  }
+
+  .media-tab-trigger {
+    width: 100% !important;
+    padding: 0.8rem 1rem !important;
+    font-size: 0.9rem !important;
+    text-align: center !important;
+    border-radius: 12px 2px 12px 2px !important;
+  }
+
+  /* 4. Luxury Workspace Card Alignment */
+  .luxury-radar-card {
+    padding: 2rem 1.25rem !important;
+    border-radius: 16px !important;
+  }
+
+  .radar-status-bar {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.75rem !important;
+    text-align: left !important;
+    margin-bottom: 1.25rem !important;
+  }
+
+  .radar-status-bar div {
+    width: 100% !important;
+    justify-content: flex-start !important;
+  }
+
+  #demo-originality-score {
+    width: 100% !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+  }
+
+  .visual-viewport-box {
+    height: 340px !important; /* Gives media loops and terminal logs optimal vertical framing */
+  }
+
+  .plagiarism-text-sandbox {
+    padding: 1.25rem !important;
+  }
+
+  .plagiarism-code-terminal {
+    font-size: 0.9rem !important;
+    line-height: 1.5 !important;
+  }
+
+  .radar-footer-bar {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.5rem !important;
+    margin-top: 1.25rem !important;
+  }
+
+  .radar-footer-bar span:last-child {
+    text-align: left !important;
+    font-size: 0.9rem !important;
+  }
+
+  .demo-action-trigger-zone {
+    margin-top: 3.5rem !important;
+  }
+
+  #js-trigger-scan {
+    width: 100% !important;
+    padding: 1.1rem !important;
+    font-size: 1.1rem !important;
+  }
+
+  /* 5. Stacking Sign-Up Layout Fields Cleanly */
+  .signup-section {
+    padding: 5rem 1.25rem !important;
   }
 
   .signup-layout {
     display: flex !important;
-    flex-direction: column !important; /* Forces layout stacking sequentially */
-    gap: 3rem !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    padding: 0 !important;
+    flex-direction: column !important;
+    gap: 3.5rem !important;
   }
 
   .signup-info {
-    width: 100% !important;
-    max-width: 100% !important;
     text-align: center !important;
-    padding: 0 0.5rem !important;
   }
 
   .signup-info h2 {
-    font-size: 2.2rem !important;
-    text-align: center !important;
+    font-size: 2.4rem !important;
     line-height: 1.2 !important;
+    letter-spacing: -0.01em !important;
   }
 
   .signup-info p {
-    text-align: center !important;
-    font-size: 1.1rem !important;
+    font-size: 1.15rem !important;
+    margin-bottom: 1.5rem !important;
   }
 
   .perks-list {
     text-align: left !important;
-    display: inline-block !important;
-    max-width: 100% !important;
-    margin: 1.5rem auto 0 auto !important;
+    max-width: 540px !important;
+    margin: 2rem auto !important;
+    font-size: 1.05rem !important;
   }
 
-  /* 3. Fully Calibrate the Input Form Shell Elements */
   .signup-form {
-    width: 100% !important;
-    max-width: 100% !important;
-    padding: 2rem 1.25rem !important;
-    margin: 0 auto !important;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.05) !important;
+    padding: 2.5rem 1.5rem !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04) !important;
   }
 
   .signup-form h3 {
-    font-size: 1.5rem !important;
+    font-size: 1.6rem !important;
     text-align: center !important;
   }
 
   .signup-form p {
     text-align: center !important;
-    font-size: 1rem !important;
-    margin-bottom: 1.5rem !important;
+    font-size: 1.05rem !important;
   }
 
-  /* 4. Ticker Stream Optimization */
-  .system-ticker-container {
-    padding: 0.5rem 0 !important;
+  .form-row {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
   }
-  
-  .ticker-item {
-    font-size: 0.75rem !important;
-    letter-spacing: 0.05em !important;
+
+  .form-group input, 
+  .form-group select {
+    padding: 0.9rem 1rem !important;
+    font-size: 1rem !important;
+  }
+
+  .checkbox-group span {
+    font-size: 1rem !important;
+    line-height: 1.4 !important;
+  }
+
+  .signup-form button[type="submit"] {
+    padding: 1.1rem !important;
+    font-size: 1.1rem !important;
+    margin-top: 0.25rem !important;
   }
 }
