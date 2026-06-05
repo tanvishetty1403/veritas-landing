@@ -1,9 +1,12 @@
 const express = require("express");
+// Explicitly require tracking module to prevent container startup crashes
+const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// PASTE YOUR GOOGLE APPS SCRIPT WEB APP URL HERE:
-const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzb9SPVPDWU0bncyi2lMin69vKZD2iWfNvIPyaqukZesR4aO5YfFGHDbfvjvRMiuYtb/exec";
+// IMPORTANT: Triple check there are no spaces or hidden newline blocks here
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzb9SPVPDWU0bncyi2lMin69vKZD2iWfNvIPyaqukZesR4aO5YfFGHDbfvjvRMiuYtb/exec".trim();
 
 app.use(express.json());
 app.use(express.static(__dirname));
@@ -31,7 +34,6 @@ app.post("/api/signup", async (req, res) => {
   };
 
   try {
-    // Forward directly to Google Sheets script architecture
     const response = await fetch(GOOGLE_SCRIPT_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -58,6 +60,12 @@ app.get("/api/signups/count", async (_req, res) => {
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`VERITAS landing page running at http://localhost:${PORT}`);
-});
+// Advanced Error Catching Wrapper for Render Instance Boot sequence
+try {
+  app.listen(PORT, () => {
+    console.log(`VERITAS landing page running at http://localhost:${PORT}`);
+  });
+} catch (startupError) {
+  console.error("FATAL INSTANCE STARTUP EXCEPTION:", startupError);
+  process.exit(1);
+}
