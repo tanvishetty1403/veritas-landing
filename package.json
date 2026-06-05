@@ -1,0 +1,13 @@
+{
+  "name": "veritas-landing",
+  "version": "1.0.0",
+  "description": "VERITAS media forensics early access landing page",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.0"
+  }
+}
