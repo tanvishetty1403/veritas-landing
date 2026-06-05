@@ -6,8 +6,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // IMPORTANT: Triple check there are no spaces or hidden newline blocks here
-const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzb9SPVPDWU0bncyi2lMin69vKZD2iWfNvIPyaqukZesR4aO5YfFGHDbfvjvRMiuYtb/exec".trim();
-
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzb9SPVPDWU0bncyi2IMin69vKZD2iWfNvIPyaukZesR4aO5YfGHDBfvjvR_MiuYtb/exec";
 app.use(express.json());
 app.use(express.static(__dirname));
 
