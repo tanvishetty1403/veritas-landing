@@ -1,228 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Veritas — Media Authenticity Verification Platform</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/css/style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VERITAS | Media Forensics & AI Content Transparency</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Premium Minimalist Styling Base */
+    body {
+      background: #faf8f5;
+      color: #2b2625;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .hero-container {
+      max-width: 900px;
+      width: 90%;
+      margin: 4rem auto;
+      text-align: center;
+    }
+    .brand-logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      color: #1a1615;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+    h1 {
+      font-size: 3rem;
+      font-weight: 300;
+      letter-spacing: -0.04em;
+      line-height: 1.15;
+      color: #1a1615;
+      margin: 0 0 1.5rem 0;
+    }
+    h1 em {
+      font-style: italic;
+      color: #8c763e;
+    }
+    .subtitle {
+      font-size: 1.25rem;
+      color: #615652;
+      max-width: 600px;
+      margin: 0 auto 3rem auto;
+      line-height: 1.6;
+    }
+    .signup-card {
+      background: #ffffff;
+      border: 1px solid #eade94;
+      border-radius: 24px;
+      padding: 2.5rem;
+      box-shadow: 0 20px 40px rgba(43, 38, 37, 0.04);
+      max-width: 550px;
+      margin: 0 auto;
+      text-align: left;
+    }
+    .signup-card h3 {
+      margin: 0 0 0.5rem 0;
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: #1a1615;
+    }
+    .form-group {
+      margin-bottom: 1.25rem;
+      display: flex;
+      flex-direction: column;
+    }
+    .form-group label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: #8c763e;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+    }
+    .form-group input, .form-group select {
+      padding: 0.85rem 1rem;
+      border: 1px solid #dcd6d2;
+      border-radius: 12px;
+      font-size: 1rem;
+      background: #faf8f5;
+      color: #2b2625;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-group input:focus, .form-group select:focus {
+      border-color: #8c763e;
+    }
+    .checkbox-group {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin: 1.5rem 0;
+      cursor: pointer;
+    }
+    .checkbox-group input {
+      margin-top: 0.2rem;
+    }
+    .checkbox-group span {
+      font-size: 0.9rem;
+      color: #615652;
+      line-height: 1.4;
+    }
+    .btn-luxury-solid {
+      background: #1a1615;
+      color: #ffffff;
+      border: none;
+      padding: 1.1rem;
+      font-size: 1rem;
+      font-weight: 500;
+      border-radius: 14px;
+      cursor: pointer;
+      width: 100%;
+      transition: background 0.2s, opacity 0.2s;
+    }
+    .btn-luxury-solid:hover {
+      background: #38312e;
+    }
+    .btn-luxury-solid:disabled {
+      background: #8c8581;
+      cursor: not-allowed;
+      opacity: 0.7;
+    }
+    .form-error {
+      color: #8a2525;
+      font-size: 0.85rem;
+      font-weight: bold;
+      margin-top: 0.5rem;
+      min-height: 1.2rem;
+    }
+  </style>
 </head>
 <body>
 
-  <!-- Custom Fluid Core Tracking Cursors -->
-  <div class="custom-cursor-dot" id="js-cursor-dot"></div>
-  <div class="custom-cursor-glow" id="js-cursor-glow"></div>
+  <div class="hero-container">
+    <div class="brand-logo">Veritas</div>
+    <h1>Providing transparency and evidence for <em>AI-generated content</em></h1>
+    <p class="subtitle">Empowering platforms, journalists, and teams with verifiable cryptographic and forensic insights to authenticate digital media records instantly.</p>
 
-  <!-- Continuous Running System Ticker -->
-  <div class="system-ticker-container">
-    <div class="ticker-wrap-track">
-      <div class="ticker-segment">
-        <span class="ticker-item">VERITAS SECURE CORE ACTIVE</span> <span class="ticker-divider"><span class="ticker-dot"></span></span>
-        <span class="ticker-item">SCAN ENGINE: ONLINE</span> <span class="ticker-divider"><span class="ticker-dot"></span></span>
-        <span class="ticker-item">DEEPFAKE FRAUD MATRIX DEPLOYED</span> <span class="ticker-divider"><span class="ticker-dot"></span></span>
-        <span class="ticker-item">DATA INTEGRITY BLOCK: 100% SECURE</span> <span class="ticker-divider"><span class="ticker-dot"></span></span>
-      </div>
-      <div class="ticker-segment">
-        <span class="ticker-item">VERITAS SECURE CORE ACTIVE</span> <span class="ticker-divider"><span class="ticker-dot"></span></span>
-        <span class="ticker-item">SCAN ENGINE: ONLINE</span> <span class="ticker-divider"><span class="ticker-dot"></span></span>
-        <span class="ticker-item">DEEPFAKE FRAUD MATRIX DEPLOYED</span> <span class="ticker-divider"><span class="ticker-dot"></span></span>
-        <span class="ticker-item">DATA INTEGRITY BLOCK: 100% SECURE</span> <span class="ticker-divider"><span class="ticker-dot"></span></span>
-      </div>
-      <div class="ticker-segment">
-        <span class="ticker-item">VERITAS SECURE CORE ACTIVE</span> <span class="ticker-divider"><span class="ticker-dot"></span></span>
-        <span class="ticker-item">SCAN ENGINE: ONLINE</span> <span class="ticker-divider"><span class="ticker-dot"></span></span>
-        <span class="ticker-item">DEEPFAKE FRAUD MATRIX DEPLOYED</span> <span class="ticker-divider"><span class="ticker-dot"></span></span>
-        <span class="ticker-item">DATA INTEGRITY BLOCK: 100% SECURE</span> <span class="ticker-divider"><span class="ticker-dot"></span></span>
-      </div>
-    </div>
-  </div>
-
-  <nav>
-    <a href="#" class="logo">Veritas</a>
-    <ul class="nav-links">
-      <li><a href="#product-details">Product Tour</a></li>
-      <li><a href="#signup" class="btn-nav-accent">Get Early Access</a></li>
-    </ul>
-  </nav>
-
-  <div class="premium-gradient-bg">
-    <header class="hero-split-canvas">
-      
-      <div class="hero-story">
-        <h1>Is it real,<br>edited, or AI?</h1>
-        <p>
-          Veritas looks beneath the layers of any image to reveal modifications, edits, and fake computer-generated content in seconds. See the truth instantly.
-        </p>
-        <div class="hero-actions">
-          <a href="#signup" class="btn-luxury-solid">Join the Waiting List</a>
-          <a href="#product-details" class="btn-luxury-outline">See how it works</a>
-        </div>
-      </div>
-
-      <div class="animation-showcase-stage">
-        <div class="luxury-radar-card">
-          <div class="radar-status-bar">
-            <span>HEATMAP ANALYSIS COMPLETED</span>
-            <span>PROCESSED</span>
-          </div>
-
-          <div class="visual-viewport-box">
-            <img
-              id="simulation-base-image"
-              src="./dog.png"
-              alt="Veritas Target Analysis Matrix"
-            />
-            
-            <div class="heatmap-overlay-node heatmap-zone-cat"></div>
-            
-            <div class="heatmap-percentage-pin pin-cat">
-              <span class="pin-dot" style="background:#e66792;"></span>
-              <span>Cat: 94.2% AI Generated</span>
-            </div>
-            <div class="heatmap-percentage-pin pin-dog">
-              <span class="pin-dot" style="background:#5cb85c;"></span>
-              <span>Dog: 100% Authentic Capture</span>
-            </div>
-          </div>
-
-          <div class="radar-footer-bar">
-            <span>VERITAS SPECTRUM REPORT</span>
-            <span style="font-weight: 600; color: #c9302c;">MODIFIED REGIONS DETECTED</span>
-          </div>
-        </div>
-      </div>
-
-    </header>
-  </div>
-
-  <section id="product-details" class="product-pillars-section">
-    <div class="section-inner">
-      
-      <div class="expanded-product-intro scroll-reveal">
-        <h2>Built for moments when trust is non-negotiable</h2>
-        <p>When you cannot afford to be misled, Veritas breaks down exactly how a file was put together, giving you bulletproof peace of mind.</p>
-      </div>
-
-      <div class="deep-dive-row scroll-reveal">
-        <div class="deep-dive-graphic-box">
-          <div class="simulated-metric-row">
-            <div class="simulated-label">
-              <h4>Newsroom Source Check</h4>
-              <p>Verifies incoming file attachments</p>
-            </div>
-            <div class="simulated-badge danger">AI Generated</div>
-          </div>
-          <div class="simulated-metric-row">
-            <div class="simulated-label">
-              <h4>Photo Alteration Scan</h4>
-              <p>Flags structural modifications</p>
-            </div>
-            <div class="simulated-badge danger">Altered</div>
-          </div>
-        </div>
-        <div class="deep-dive-copy">
-          <h3>For Newsrooms & Journalists</h3>
-          <p>
-            Protect your publication's reputation. Instantly verify news stories, source attachments, and user-submitted photos before they go live, catching deepfakes and manipulated files before they mislead the public.
-          </p>
-        </div>
-      </div>
-
-      <div class="deep-dive-row reversed scroll-reveal">
-        <div class="deep-dive-copy">
-          <h3>For Legal & Discovery Teams</h3>
-          <p>
-            Audit digital evidence confidently before submitting it to court channels. Veritas identifies background tampering and saving inconsistencies, giving your legal team clear evidence verification notes you can rely on.
-          </p>
-        </div>
-        <div class="deep-dive-graphic-box">
-          <div class="simulated-metric-row">
-            <div class="simulated-label">
-              <h4>Evidence File Check</h4>
-              <p>Scans for background tempering signatures</p>
-            </div>
-            <div class="simulated-badge" style="background:rgba(92,184,92,0.1); color:#5cb85c;">Verified Authentic</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="deep-dive-row scroll-reveal">
-        <div class="deep-dive-graphic-box">
-          <div class="simulated-metric-row">
-            <div class="simulated-label">
-              <h4>Identity Document Check</h4>
-              <p>Spots altered text on passport scans</p>
-            </div>
-            <div class="simulated-badge danger">Forged Text</div>
-          </div>
-          <div class="simulated-metric-row">
-            <div class="simulated-label">
-              <h4>Profile Picture Check</h4>
-              <p>Flags computer-generated headshots</p>
-            </div>
-            <div class="simulated-badge">Clear</div>
-          </div>
-        </div>
-        <div class="deep-dive-copy">
-          <h3>For HR Teams & Daily Security</h3>
-          <p>
-            Catch documentation fraud early. Veritas reviews background checks, uploaded certificate files, identity card scans, and profile avatars, ensuring your onboarding pipelines remain secure and trustworthy.
-          </p>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <section id="signup" class="signup-section">
-    <div class="section-inner signup-layout scroll-reveal">
-      
-      <div class="signup-info">
-        <h2>Get early access to Veritas</h2>
-        <p>
-          We are rolling out invitations in controlled batches to ensure premium performance. Reserve your private staging invitation today.
-        </p>
-        <ul class="perks-list">
-          <li>Early access to the cloud verification ecosystem dashboard</li>
-          <li>Direct milestone update notes sent straight from our design team</li>
-          <li>Priority onboarding routes for your wider organization members</li>
-        </ul>
-        <p style="font-size: 0.95rem; color: #443c39; margin-top: 2.5rem; font-weight: 500;">
-          CURRENT SIGNUPS WAITING: <strong id="signup-count" style="color: #1a1513;">—</strong> ACTIVE RESERVATIONS
-        </p>
-      </div>
-
+    <div class="signup-card">
       <form class="signup-form" id="signup-form">
         <h3>Request Invitation Slot</h3>
-        <p style="color: #443c39; font-size: 0.95rem; margin-bottom: 0.5rem;">Fill out your basic details below to secure your placement.</p>
+        <p style="color: #615652; font-size: 0.95rem; margin-bottom: 1.5rem; margin-top: 0;">Fill out your basic details below to secure your placement.</p>
         
-        <div class="form-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; width: 100%;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; width: 100%; margin-bottom: 0.25rem;">
           <div class="form-group">
-            <label for="name">YOUR FULL NAME</label>
+            <label for="name">Your Full Name</label>
             <input type="text" id="name" name="name" placeholder="Sarah Jenkins" required />
           </div>
           <div class="form-group">
-            <label for="email">EMAIL ADDRESS</label>
+            <label for="email">Email Address</label>
             <input type="email" id="email" name="email" placeholder="sarah@company.com" required />
           </div>
         </div>
         
         <div class="form-group" style="width: 100%;">
-          <label for="role">YOUR PROFESSION / FIELD</label>
-          <div class="form-group" style="width: 100%;">
-          <label for="role">YOUR PROFESSION / FIELD</label>
+          <label for="role">Your Profession / Field</label>
           <select id="role" name="role">
             <option value="Journalist">Journalist or Media Creator</option>
             <option value="Lawyer">Legal or Forensic Professional</option>
             <option value="HR Professional">Corporate Trust & HR Security</option>
             <option value="Fact Checker">Independent Researcher / Fact Checker</option>
-            <option value="Digital Safety Cons">Everyday Consumer (Protecting Personal Media & Identity)</option>
+            <option value="Digital Safety Cons">Everyday Consumer (Protecting Identity)</option>
             <option value="Fraud Investigator">Anti-Fraud or Scam Prevention Specialist</option>
             <option value="Tech Enthusiast">Early Adopter / Open Beta Explorer</option>
           </select>
-        </div>
         </div>
         
         <label class="checkbox-group">
@@ -230,18 +178,58 @@
           <span>I'm happy to provide product feedback or participate in a quick 15-minute user interview.</span>
         </label>
         
-        <p class="form-error" id="form-error" style="color: #8a2525; font-size: 0.85rem; font-weight: bold;"></p>
-        <button type="submit" class="btn-luxury-solid" style="width: 100%; border-radius: 14px; padding: 1.1rem;">Request Early Access Spot</button>
+        <p class="form-error" id="form-error"></p>
+        <button type="submit" class="btn-luxury-solid">Request Early Access Spot</button>
       </form>
-
     </div>
-  </section>
+  </div>
 
-  <footer>
-    <a href="#" class="logo">Veritas</a>
-    <p>© 2026 Veritas Media Verification. All rights reserved.</p>
-  </footer>
+  <script>
+    document.getElementById('signup-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const form = e.target;
+      const submitButton = form.querySelector('button[type="submit"]');
+      const errorElement = document.getElementById('form-error');
+      
+      // 1. Instantly freeze the button to stop multi-clicks from making duplicate rows
+      submitButton.disabled = true;
+      const originalButtonText = submitButton.innerText;
+      submitButton.innerText = "Securing Slot...";
+      errorElement.innerText = "";
 
-  <script src="./js/main.js"></script>
+      // 2. Wrap form values into payload configuration
+      const formData = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        role: document.getElementById('role').value,
+        interviewOk: document.getElementById('interviewOk').checked
+      };
+
+      try {
+        // 3. Route parameters through local Express proxy pipeline
+        const response = await fetch('/api/signup', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData)
+        });
+
+        const result = await response.json();
+
+        if (response.ok && result.success) {
+          // 4. On successful data sync, drop client straight into thank you node
+          window.location.href = '/thank-you.html';
+        } else {
+          throw new Error(result.error || 'Submission rejected by network pipeline.');
+        }
+      } catch (err) {
+        // 5. Safe fallback: restore button layout if transmission hit network errors
+        errorElement.innerText = err.message || "Failed to submit entry. Please try again.";
+        submitButton.disabled = false;
+        submitButton.innerText = originalButtonText;
+      }
+    });
+  </script>
+
 </body>
 </html>

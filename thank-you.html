@@ -1,166 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>You're on the list — Veritas</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
-  
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html, body {
-      background-color: #f6f2ee;
-      color: #1c1816;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      min-height: 100vh;
-      -webkit-font-smoothing: antialiased;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verification Slot Reserved | VERITAS</title>
+  <link rel="stylesheet" href="css/style.css"> <style>
+    body {
+      background: #faf8f5;
+      color: #2b2625;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 2rem;
-    }
-
-    .thankyou-page-wrapper {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
       height: 100vh;
-      background: linear-gradient(135deg, #f6f2ee 0%, #daafbb 40%, #c5c1e0 70%, #f6f2ee 100%);
-      background-size: 100% 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 1.5rem;
-      z-index: 1;
+      margin: 0;
     }
-
-    .thankyou-luxury-card {
-      position: relative;
-      background: rgba(255, 255, 255, 0.75);
-      backdrop-filter: blur(30px);
-      -webkit-backdrop-filter: blur(30px);
-      border: 1px solid rgba(255, 255, 255, 0.9);
-      border-radius: 40px;
-      max-width: 520px;
-      width: 100%;
-      padding: 3.5rem;
+    .thank-you-card {
       text-align: center;
-      box-shadow: 0 40px 80px rgba(135, 130, 160, 0.15);
-      z-index: 10;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1.5rem;
+      padding: 3rem 2rem;
+      background: #ffffff;
+      border: 1px solid #eade94;
+      border-radius: 24px;
+      box-shadow: 0 20px 40px rgba(43, 38, 37, 0.05);
+      max-width: 480px;
+      width: 90%;
     }
-
-    .success-icon-badge {
-      width: 60px;
-      height: 60px;
-      background: rgba(101, 93, 160, 0.15);
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 1.5rem;
-      color: #655da0;
-      font-weight: bold;
-      margin-bottom: 0.5rem;
+    .badge-icon {
+      font-size: 3rem;
+      color: #8c763e;
+      margin-bottom: 1.5rem;
     }
-
-    .thankyou-luxury-card h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.8rem;
-      letter-spacing: -0.02em;
-      color: #1c1816;
-      line-height: 1.2;
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 300;
+      letter-spacing: -0.03em;
+      margin: 0 0 1rem 0;
+      color: #1a1615;
     }
-
-    .thankyou-luxury-card p {
-      color: #4a423e;
-      font-size: 1.05rem;
+    p {
+      color: #615652;
       line-height: 1.6;
+      margin: 0 0 2rem 0;
+      font-size: 1rem;
     }
-
-    .visual-viewport-frame {
-      position: relative;
-      width: 100%;
-      height: 220px;
-      border-radius: 20px;
-      overflow: hidden;
-      margin: 0.5rem 0;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-    }
-
-    .visual-viewport-frame img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .btn-luxury-back {
-      background: #1c1816;
-      color: #fdfcfb;
-      border: none;
-      padding: 1.1rem 2.5rem;
-      border-radius: 40px;
-      font-size: 0.95rem;
-      font-weight: 500;
-      cursor: pointer;
-      box-shadow: 0 15px 35px rgba(28, 24, 22, 0.15);
-      transition: all 0.3s ease;
-      text-decoration: none;
-      margin-top: 0.5rem;
+    .back-btn {
       display: inline-block;
-      width: 100%;
+      text-decoration: none;
+      background: #1a1615;
+      color: #ffffff;
+      padding: 0.9rem 2rem;
+      border-radius: 12px;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: background 0.2s ease;
     }
-
-    .btn-luxury-back:hover {
-      background: #9e8170;
-      box-shadow: 0 15px 35px rgba(158, 129, 112, 0.25);
-      transform: translateY(-1px);
+    .back-btn:hover {
+      background: #38312e;
     }
   </style>
 </head>
 <body>
 
-  <div class="thankyou-page-wrapper">
-    <div class="thankyou-luxury-card">
-      <div class="success-icon-badge">✓</div>
-      <h1>Thanks, Tanvi</h1>
-      <p>Your application for private sandbox access has been recorded. We will clear your security node updates inside our next rollout sequence.</p>
-      
-      <div class="visual-viewport-frame">
-        <img src="dog.png" alt="Verification Complete" />
-      </div>
-      
-      <p id="interview-msg" style="font-size: 0.95rem; color: #5c534f;"></p>
-      <a href="index.html" class="btn-luxury-back">Return to core matrix</a>
-    </div>
+  <div class="thank-you-card">
+    <div class="badge-icon">✦</div>
+    <h1>Placement Secured</h1>
+    <p>Thank you for registering for early access. Your placement position has been recorded in our secure network ledger. We will reach out via your provided email credentials as onboarding slots scale open.</p>
+    <a href="/index.html" class="back-btn">Return to Platform</a>
   </div>
 
-  <script>
-    const params = new URLSearchParams(window.location.search);
-    const name = params.get("name");
-    const interview = params.get("interview");
-
-    if (name) {
-      document.querySelector(".thankyou-luxury-card h1").textContent = `Thanks, ${decodeURIComponent(name)}`;
-    }
-
-    const msg = document.getElementById("interview-msg");
-    if (interview === "yes") {
-      msg.textContent = "Our development engineers will send a separate invite link to coordinate your interface verification checkpoint pass soon.";
-    } else {
-      msg.textContent = "We'll notify you via your provided mail channel as soon as your secure staging environment is ready.";
-    }
-  </script>
 </body>
 </html>
