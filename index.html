@@ -436,6 +436,79 @@
       .visual-viewport-box { height: 380px; }
       .luxury-radar-card { padding: 2rem 1.5rem; }
     }
+
+    /* Precision Mobile Viewport Media Queries */
+@media (max-width: 868px) {
+  /* Relax global padding matrices for smaller viewports */
+  nav {
+    padding: 1rem 1.5rem !important;
+  }
+  
+  .hero-split-canvas {
+    padding: 10rem 1rem 6rem 1rem !important;
+  }
+
+  .hero-story-container h1 {
+    font-size: calc(2.4rem + 1.5vw) !important;
+    line-height: 1.1 !important;
+  }
+
+  .hero-paragraph {
+    font-size: 1.15rem !important;
+    margin-bottom: 2.5rem !important;
+  }
+
+  .hero-actions a {
+    width: 100% !important; /* Stack action buttons cleanly on phone screens */
+    text-align: center;
+  }
+
+  .standalone-demo-workspace {
+    padding: 5rem 1rem !important;
+  }
+
+  /* Structural adjustment for the workspace tab selection rows */
+  .workspace-tab-row {
+    gap: 0.5rem !important;
+    margin-bottom: 2rem !important;
+  }
+
+  .media-tab-trigger {
+    width: 100% !important; /* Stack tabs nicely on mobile */
+    text-align: center;
+    padding: 0.75rem 1rem !important;
+  }
+
+  .visual-viewport-box {
+    height: 340px !important; /* Bring display height down proportionally */
+  }
+
+  /* Tour Grid Collapse: Linear stacking instead of side-by-side columns */
+  .tour-grid-framework {
+    grid-template-columns: 1fr !important;
+    gap: 1.75rem !important;
+    margin-top: 3.5rem !important;
+  }
+
+  .tour-feature-block {
+    padding: 2rem 1.5rem !important;
+  }
+
+  /* Form Layout Fix: Force full-width elements to completely eliminate truncation */
+  .signup-layout {
+    grid-template-columns: 1fr !important;
+    gap: 3.5rem !important;
+  }
+
+  .signup-form {
+    padding: 2rem 1.5rem !important;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr !important; /* Drops input row down to single stacked items */
+    gap: 1.25rem !important;
+  }
+}
   </style>
 </head>
 <body>
