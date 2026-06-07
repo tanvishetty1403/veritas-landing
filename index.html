@@ -6,7 +6,7 @@
   <title>Veritas — Media Authenticity Verification Platform</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/css/style.css" />
   <style>
     /* Smooth Fluid Base Mechanics */
@@ -22,14 +22,6 @@
       color: #fdfcfb;
       margin: 0;
       overflow-x: hidden;
-    }
-
-    /* Unified Premium Monospaced Headings Matrix */
-    h1, h2, h3 {
-      font-family: 'SF Mono', 'Fira Code', 'Roboto Mono', monospace !important;
-      font-weight: 700 !important;
-      letter-spacing: -0.02em !important;
-      text-transform: uppercase;
     }
 
     /* Premium Dynamic Background Mesh */
@@ -98,7 +90,7 @@
       font-family: 'Inter', sans-serif !important;
       font-size: 1.15rem !important; 
       line-height: 1.8 !important;
-      color: #e5e1df !important; /* Luminous silver-white for readability */
+      color: #e5e1df !important;
     }
 
     /* Fixed Navigation Header */
@@ -166,7 +158,10 @@
       margin: 0 auto;
     }
     .hero-story-container h1 {
+      font-family: 'Playfair Display', serif !important;
+      font-weight: 700;
       font-size: calc(3.4rem + 3vw);
+      letter-spacing: -0.03em;
       line-height: 1.05;
       margin: 0 0 1.5rem 0;
       background: linear-gradient(180deg, #fdfcfb 20%, #a39c99 100%);
@@ -174,12 +169,10 @@
       -webkit-text-fill-color: transparent;
     }
     .hero-tagline {
-      font-family: 'SF Mono', 'Fira Code', 'Roboto Mono', monospace !important;
-      font-style: normal !important;
-      font-size: calc(1.2rem + 0.8vw) !important;
-      font-weight: 600 !important;
-      letter-spacing: 0.05em !important;
-      text-transform: uppercase;
+      font-family: 'Playfair Display', serif !important;
+      font-style: italic;
+      font-size: calc(1.6rem + 1.2vw) !important;
+      font-weight: 500;
       margin-bottom: 3rem;
       color: #e66792 !important;
     }
@@ -326,11 +319,6 @@
       background: linear-gradient(180deg, #050505 0%, #0d0a0a 50%, #050505 100%);
       border-top: 1px solid rgba(253,252,251,0.02);
     }
-    .expanded-product-intro h2 {
-      font-size: calc(2rem + 1vw) !important;
-      color: #fdfcfb !important;
-      margin-bottom: 1.5rem !important;
-    }
     .tour-grid-framework {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -350,7 +338,9 @@
       transform: translateY(-5px);
     }
     .tour-feature-block h3 {
-      font-size: 1.5rem !important; 
+      font-family: 'Playfair Display', serif !important; 
+      font-weight: 700 !important;
+      font-size: 1.75rem !important; 
       letter-spacing: -0.01em !important;
       margin: 0 0 1.25rem 0 !important;
       color: #fdfcfb !important;
@@ -376,7 +366,9 @@
       align-items: center;
     }
     .signup-info h2 {
-      font-size: calc(2.2rem + 1vw);
+      font-family: 'Playfair Display', serif !important;
+      font-weight: 700;
+      font-size: calc(2.4rem + 1vw);
       letter-spacing: -0.02em;
       margin-bottom: 1.5rem;
       color: #fdfcfb;
@@ -480,24 +472,18 @@
         padding: 0.75rem 1rem !important;
       }
       
-      /* Dynamic Aspect Fluid Locks for Anti-Squishing + Anti-Clipping Mechanics */
+      /* Dynamic Aspect Fluid Locks for Anti-Squishing Mechanics */
       .visual-viewport-box {
         height: auto !important; 
         aspect-ratio: 4 / 3 !important; 
         width: 100% !important;
       }
-      .visual-viewport-box img {
-        width: 100% !important;
-        height: 100% !important;
-        object-fit: contain !important; /* Forces layout containment without cutoff artifacts */
-        background-color: #000000;
-      }
+      .visual-viewport-box img,
       .visual-viewport-box video {
         width: 100% !important;
         height: 100% !important;
         object-fit: cover !important;
       }
-      
       .luxury-radar-card {
         padding: 2rem 1.25rem !important;
       }
@@ -526,7 +512,7 @@
 <body>
 
   <nav>
-    <a href="#" class="logo" style="font-family: 'SF Mono', 'Fira Code', 'Roboto Mono', monospace !important; font-weight: 700; font-size: 1.9rem;">Veritas</a>
+    <a href="#" class="logo" style="font-family: 'Playfair Display', serif !important; font-weight: 700; font-size: 1.9rem;">Veritas</a>
     <ul class="nav-links">
       <li><a href="#product-tour-section" style="font-size: 1.05rem; font-weight: 500;">Product Tour</a></li>
       <li><a href="#signup" class="btn-nav-accent" style="font-size: 1.05rem; font-weight: 600;">Get Early Access</a></li>
@@ -568,7 +554,7 @@
 
   <section id="demo-workspace" class="standalone-demo-workspace reveal-item">
     <div class="section-inner" style="width: 100%; max-width: 960px; margin: 0 auto;">
-      <h2 style="text-align: center; color: #fdfcfb;">Experience the Core Engine</h2>
+      <h2 style="font-family: 'Playfair Display', serif !important; font-weight: 700; font-size: 3rem; letter-spacing: -0.02em; margin-bottom: 1.25rem; text-align: center; color: #fdfcfb;">Experience the Core Engine</h2>
       <p style="color: #aba4a1 !important; max-width: 640px; margin: 0 auto 3.5rem auto; text-align: center; font-size: 1.2rem !important;">Interact with the active analysis container. Choose a format tab, then hit scan to run real-time forensic computing sequences.</p>
       
       <div class="workspace-tab-row">
@@ -676,7 +662,7 @@
       </div>
 
       <form class="signup-form" id="signup-form" style="padding: 3.5rem; border-radius: 24px; display: flex; flex-direction: column; gap: 1.75rem;">
-        <h3 style="font-size: 1.9rem; font-weight: 700; margin: 0; color:#fdfcfb; letter-spacing: -0.01em;">Request Invitation Slot</h3>
+        <h3 style="font-family: 'Playfair Display', serif !important; font-size: 1.9rem; font-weight: 700; margin: 0; color:#fdfcfb; letter-spacing: -0.01em;">Request Invitation Slot</h3>
         <p style="color: #aba4a1; font-size: 1.05rem !important; margin: 0 0 0.5rem 0;">Fill out your basic details below to secure your placement.</p>
         
         <div class="form-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; width: 100%;">
@@ -716,7 +702,7 @@
   </section>
 
   <footer>
-    <a class="logo" style="font-family: 'SF Mono', 'Fira Code', 'Roboto Mono', monospace !important; font-weight: 700; font-size: 1.5rem;">Veritas</a>
+    <a class="logo" style="font-family: 'Playfair Display', serif !important; font-weight: 700; font-size: 1.5rem;">Veritas</a>
     <p style="font-size: 1rem !important; color: #706764 !important; margin-top: 0.6rem;">© 2026 Veritas Media Verification. All rights reserved.</p>
   </footer>
 
