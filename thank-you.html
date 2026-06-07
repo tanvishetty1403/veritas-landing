@@ -64,10 +64,26 @@
       color: #fdfcfb;
       margin-bottom: 1rem;
     }
+    
+    /* Brightened greeting subtitle string container */
+    .luxury-confirmation-card p.greeting-lead {
+      margin-bottom: 1.5rem; 
+      color: #e5e1df !important; /* Premium high-contrast silver-white */
+      font-size: 1.25rem !important;
+    }
+
     .personalized-greeting {
       font-weight: 700;
       color: #e66792;
     }
+
+    /* Bumping background layout message to clean silver */
+    .luxury-confirmation-card p.body-notice {
+      color: #d1cac6 !important; /* Elevated secondary silver text */
+      font-size: 1.1rem !important; 
+      line-height: 1.8;
+    }
+
     .interview-notice-box {
       background: rgba(230, 103, 146, 0.06);
       border-left: 3px solid #e66792;
@@ -80,7 +96,7 @@
     .interview-notice-box p {
       font-size: 1rem !important;
       line-height: 1.65 !important;
-      color: #aba4a1 !important;
+      color: #e5e1df !important; /* Legible inner framework context string */
       margin: 0;
     }
     .action-return-zone {
@@ -130,10 +146,12 @@
       </div>
 
       <h1>Invitation Secured</h1>
-      <p style="margin-bottom: 1.5rem; color: #aba4a1; font-size: 1.15rem;">
+      
+      <p class="greeting-lead">
         Welcome to the lineage of truth, <span id="client-name-target" class="personalized-greeting">there</span>.
       </p>
-      <p style="color: #8c827e; font-size: 1.05rem !important; line-height: 1.75;">
+      
+      <p class="body-notice">
         Your submission slot has been securely logged across our distributed staging registry array. An access token credential pipeline update will be routed to your email shortly.
       </p>
 
