@@ -769,18 +769,10 @@
       });
     });
 
-    async function updateSignupCounter() {
-      try {
-        const response = await fetch('/api/signups/count');
-        if (response.ok) {
-          const data = await response.json();
-          document.getElementById('signup-count').textContent = data.count;
-        }
-      } catch (err) {
-        document.getElementById('signup-count').textContent = "—";
-      }
-    }
-    document.addEventListener("DOMContentLoaded", updateSignupCounter);
+    function updateSignupCounter() {
+  document.getElementById('signup-count').textContent = 12;
+}
+document.addEventListener("DOMContentLoaded", updateSignupCounter);
 
     document.getElementById("js-scroll-to-demo").addEventListener("click", function(e) {
       e.preventDefault();
